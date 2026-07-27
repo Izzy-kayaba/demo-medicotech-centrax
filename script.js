@@ -14,19 +14,18 @@ document.querySelector("#site-header").innerHTML = `
     <nav class="nav" id="primary-nav" aria-label="Primary navigation">
       <ul>
         <li><a href="${pages.home}"${current("home")}>Home</a></li>
-        <li><a href="${pages.about}"${current("about")}>About Us</a></li>
-        <li><a href="${pages.services}"${current("services")}>Services</a></li>
-        <li><a href="${pages.home}#who-we-support">Industries</a></li>
         <li class="nav__item--dropdown">
-          <button class="nav__dropdown-button" type="button" aria-expanded="false">Resources</button>
+          <button class="nav__dropdown-button" type="button" aria-expanded="false">About Us</button>
           <ul class="nav__dropdown">
-            <li><a href="${pages.digital}"${current("digital")}>Our Systems</a></li>
-            <li><a href="${pages.news}"${current("news")}>News</a></li>
+            <li><a href="${pages.about}"${current("about")}>About MedicoTech</a></li>
             <li><a href="${pages.partners}"${current("partners")}>Partners &amp; Collaborators</a></li>
             <li><a href="${pages.ethics}"${current("ethics")}>Ethics &amp; Compliance</a></li>
           </ul>
         </li>
-        <li><a href="${pages.contact}"${current("contact")}>Contact</a></li>
+        <li><a href="${pages.digital}"${current("digital")}>Digital Solutions</a></li>
+        <li><a href="${pages.services}"${current("services")}>Professional Services</a></li>
+        <li><a href="${pages.news}"${current("news")}>News</a></li>
+        <li><a href="${pages.contact}"${current("contact")}>Contact Us</a></li>
       </ul>
       <a class="button login-button" href="#" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
     </nav>
@@ -59,6 +58,24 @@ document.querySelectorAll(".nav__dropdown-button").forEach((button) => {
     button.setAttribute("aria-expanded", String(open));
   });
 });
+
+const revealItems = document.querySelectorAll(
+  "main .section > .container, .image-band__block, .contact-layout"
+);
+if (revealItems.length && "IntersectionObserver" in window) {
+  document.body.classList.add("motion-ready");
+  revealItems.forEach((item) => item.classList.add("reveal"));
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
+
 const form = document.querySelector(".form");
 if (form) {
   form.addEventListener("submit", (event) => {
