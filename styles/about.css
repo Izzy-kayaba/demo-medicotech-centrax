@@ -389,7 +389,7 @@ p {
     background:
         linear-gradient(135deg,
             rgba(15, 94, 99, 0.78),
-            rgba(15, 83, 99, 0.65)), url("assets/hospital-hero.jpg") center/cover no-repeat;
+            rgba(15, 83, 99, 0.65)), url("../assets/hospital-hero.jpg") center/cover no-repeat;
     z-index: -1;
 }
 
