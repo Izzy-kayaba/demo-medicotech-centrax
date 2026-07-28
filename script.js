@@ -22,8 +22,8 @@ document.querySelector("#site-header").innerHTML = `
             <li><a href="${pages.ethics}"${current("ethics")}>Ethics &amp; Compliance</a></li>
           </ul>
         </li>
+        <li><a href="${pages.services}"${current("services")}>Services</a></li>
         <li><a href="${pages.digital}"${current("digital")}>Digital Solutions</a></li>
-        <li><a href="${pages.services}"${current("services")}>Professional Services</a></li>
         <li><a href="${pages.news}"${current("news")}>News</a></li>
         <li><a href="${pages.contact}"${current("contact")}>Contact Us</a></li>
       </ul>

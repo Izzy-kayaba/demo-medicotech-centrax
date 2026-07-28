@@ -1,6 +1,6 @@
 :root {
     --primary: #0F5E63;
-    --primary-dark: #0a4a4e;
+    --primary-dark: #0F5363;
     --primary-hover: #1b6d72;
     --green: #6cbf80;
     --green-bright: #32f086;
@@ -106,7 +106,7 @@ h4 {
 
 h1 {
     max-width: 14ch;
-    font-size: clamp(2.65rem, 6vw, 5.4rem);
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
     letter-spacing: -.055em;
 }
 
@@ -236,15 +236,15 @@ p {
     position: sticky;
     z-index: 100;
     top: 0;
-    border-bottom: 1px solid rgba(230, 231, 232, .7);
     background: rgba(255, 255, 255, .98);
 }
 
 .header-inner {
-    display: flex;
-    min-height: 86px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 32px;
+    gap: 2rem;
+    min-height: 100px;
 }
 
 .brand {
@@ -279,10 +279,10 @@ p {
     align-items: center;
     gap: 5px;
     border: 0;
-    padding: 12px 10px;
+    padding: 1.5rem 1rem;
     color: var(--grey-900);
     background: transparent;
-    font-size: .79rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -373,36 +373,59 @@ p {
 }
 
 .hero {
-    min-height: 680px;
+    position: relative;
+    min-height: 780px;
+    border-radius: 2rem;
     display: flex;
     align-items: center;
-    background: url("assets/hospital-hero.jpg") center / cover no-repeat;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            rgba(15, 94, 99, 0.78),
+            rgba(15, 83, 99, 0.65)), url("assets/hospital-hero.jpg") center/cover no-repeat;
+    z-index: -1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 94, 99, 0.2);
+    /* optional subtle brand overlay */
+    z-index: -1;
 }
 
 .hero__inner {
-    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+    padding: 4rem 0;
 }
 
 .hero__content {
     max-width: 690px;
-    padding: clamp(30px, 5vw, 64px);
     color: var(--charcoal);
-    background: var(--white);
-    box-shadow: var(--shadow);
 }
 
-.hero h1 {
-    color: var(--primary);
-}
-
-.hero .eyebrow {
+#hero-title {
+    font-size: 3.5rem;
+    display: inline;
     color: var(--white);
 }
 
-.hero__content>p:not(.eyebrow) {
-    max-width: 58ch;
-    color: var(--grey-700);
-    font-size: 1.04rem;
+.hero-subheading {
+    padding: clamp(1rem, 3vw, 3.5rem);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: var(--shadow);
+    margin-top: 1.5rem;
 }
 
 .split {
