@@ -171,11 +171,19 @@
 }
 
 .card {
-    border: 1px solid var(--grey-200);
-    border-top: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
     padding: 30px;
     background: var(--white);
-    box-shadow: 0 10px 30px rgba(18, 43, 45, .055);
+    border: 1px solid var(--grey-200);
+    border-top: 4px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(18, 43, 45, 0.06);
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
 }
 
 .card p:last-child {
