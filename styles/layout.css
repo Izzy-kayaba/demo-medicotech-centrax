@@ -166,16 +166,16 @@ p {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     min-height: 100px;
 }
 
 .brand {
-    flex: 0 0 230px;
+    flex: 0 0 200px;
 }
 
 .brand img {
-    width: 230px;
+    width: 200px;
     height: auto;
 }
 
@@ -184,13 +184,13 @@ p {
     flex: 1;
     align-items: center;
     justify-content: flex-end;
-    gap: 30px;
+    gap: 14px;
 }
 
 .nav ul {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 2px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -202,10 +202,10 @@ p {
     align-items: center;
     gap: 5px;
     border: 0;
-    padding: 1.5rem 1rem;
+    padding: 1.5rem .55rem;
     color: var(--grey-900);
     background: transparent;
-    font-size: 1rem;
+    font-size: .86rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;

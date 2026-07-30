@@ -1,8 +1,9 @@
 const page = document.body.dataset.page || "";
 const pages = {
-  home: "index.html", about: "about.html", digital: "digital-solutions.html",
+  home: "index.html", about: "about.html",
   services: "professional-services.html", news: "news.html", contact: "contact.html",
-  partners: "partners.html", ethics: "ethics.html"
+  partners: "partners.html", ethics: "ethics.html", howItWorks: "how-it-works.html",
+  industries: "industries.html"
 };
 const current = (key) => page === key ? ' aria-current="page"' : "";
 
@@ -23,7 +24,8 @@ document.querySelector("#site-header").innerHTML = `
           </ul>
         </li>
         <li><a href="${pages.services}"${current("services")}>Services</a></li>
-        <li><a href="${pages.digital}"${current("digital")}>Digital Solutions</a></li>
+        <li><a href="${pages.industries}"${current("industries")}>Industries</a></li>
+        <li><a href="${pages.howItWorks}"${current("howItWorks")}>How It Works</a></li>
         <li><a href="${pages.news}"${current("news")}>News</a></li>
         <li><a href="${pages.contact}"${current("contact")}>Contact Us</a></li>
       </ul>
@@ -35,7 +37,7 @@ document.querySelector("#site-footer").innerHTML = `
   <footer class="site-footer">
     <div class="container footer-main">
       <div class="footer-brand"><img class="footer-logo" src="assets/medicotech-logo.png" alt="MedicoTech"></div>
-      <div><h3>Quick Link</h3><ul><li><a href="${pages.about}">About</a></li><li><a href="${pages.services}">Services</a></li><li><a href="${pages.home}#who-we-support">Industries</a></li><li><a href="${pages.digital}">Our Systems</a></li><li><a href="${pages.contact}">Contact</a></li></ul></div>
+      <div><h3>Quick Link</h3><ul><li><a href="${pages.about}">About</a></li><li><a href="${pages.services}">Services</a></li><li><a href="${pages.howItWorks}">How It Works</a></li><li><a href="${pages.industries}">Industries</a></li><li><a href="${pages.contact}">Contact</a></li></ul></div>
       <div><h3>Contact Us</h3><ul class="footer-contact"><li><span aria-hidden="true">☎</span><a href="tel:+27609411024">+27-60-941-1024</a></li><li><span aria-hidden="true">✉</span><a href="mailto:info@tptmedicotech.com">info@tptmedicotech.com</a></li><li><span aria-hidden="true">●</span><span>Johannesburg</span></li></ul></div>
       <div><h3>Recent News</h3><ul><li><a href="${pages.news}">MedicoTech</a></li><li><a href="${pages.news}">Matric Stress</a></li><li><a href="${pages.news}">When Money Hurts</a></li></ul></div>
     </div>
