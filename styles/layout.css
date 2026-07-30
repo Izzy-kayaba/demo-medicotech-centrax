@@ -130,6 +130,34 @@ p {
     font-size: clamp(1.04rem, 2vw, 1.25rem);
 }
 
+.section-intro {
+    margin-bottom: 46px;
+    border-bottom: 1px solid var(--grey-300);
+    padding-bottom: 30px;
+}
+
+.brief-statement,
+.belief-statement {
+    width: 100%;
+    max-width: none;
+    margin: 24px 0 0;
+    border: 1px solid var(--grey-200);
+    border-left: 4px solid var(--secondary, var(--primary));
+    padding: 20px 24px;
+    color: var(--grey-700);
+    background: var(--white);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.section-intro > .brief-statement {
+    margin-bottom: 0;
+}
+
+.section--primary .section-intro {
+    border-color: rgba(255, 255, 255, .28);
+}
+
 .section {
     padding: 96px 0;
 }

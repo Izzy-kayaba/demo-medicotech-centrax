@@ -299,7 +299,9 @@
 }
 
 .belief-statement {
-    margin: 34px 0 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 34px 0 0;
     border: 1px solid var(--grey-200);
     border-left: 4px solid var(--green);
     padding: 22px 24px;

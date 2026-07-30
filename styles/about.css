@@ -54,10 +54,6 @@
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
-.page-hero .lead {
-    max-width: 700px;
-}
-
 .about-media,
 .founder-portrait {
     position: relative;
@@ -171,19 +167,6 @@
     margin-bottom: 0;
 }
 
-.approach-intro {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-    gap: clamp(36px, 7vw, 86px);
-    align-items: end;
-    margin-bottom: 44px;
-}
-
-.approach-intro>p {
-    color: var(--grey-700);
-    font-size: 1.08rem;
-}
-
 .approach-visual {
     display: grid;
     grid-template-columns: minmax(320px, .8fr) minmax(0, 1.2fr);
@@ -228,15 +211,6 @@
     margin: 0;
     font-size: 1rem;
     line-height: 1.45;
-}
-
-.belief-statement {
-    margin: 34px 0 0 auto;
-    border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
-    padding: 18px 22px;
-    color: var(--grey-700);
-    background: var(--white);
 }
 
 .founder-section {
@@ -321,7 +295,6 @@
         padding: 54px 0 70px;
     }
 
-    .approach-intro,
     .cta {
         grid-template-columns: 1fr;
         gap: 28px;

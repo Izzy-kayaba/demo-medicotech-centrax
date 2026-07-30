@@ -24,10 +24,6 @@
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
-.page-hero .lead {
-    max-width: 720px;
-}
-
 .visual-placeholder {
     position: relative;
     overflow: hidden;
@@ -91,21 +87,6 @@
     text-transform: uppercase;
 }
 
-.industries-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
-    gap: clamp(36px, 7vw, 80px);
-    align-items: end;
-    margin-bottom: 46px;
-    border-bottom: 1px solid var(--grey-300);
-    padding-bottom: 30px;
-}
-
-.industries-heading > p {
-    margin: 0;
-    color: var(--grey-700);
-}
-
 .challenge-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -140,17 +121,6 @@
     margin: 0;
     color: var(--grey-900);
     font-size: 1.05rem;
-}
-
-.belief-statement {
-    margin: 34px 0 0 auto;
-    border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
-    padding: 22px 24px;
-    color: var(--grey-700);
-    background: var(--white);
-    font-size: 1.05rem;
-    font-weight: 600;
 }
 
 .industry-card-grid {
@@ -283,14 +253,8 @@
         padding: 54px 0 70px;
     }
 
-    .industries-heading,
     .industry-card-grid {
         grid-template-columns: 1fr;
-    }
-
-    .industries-heading {
-        gap: 24px;
-        align-items: start;
     }
 }
 

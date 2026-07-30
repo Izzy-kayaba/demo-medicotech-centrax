@@ -32,10 +32,6 @@
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
-.page-hero .lead {
-    max-width: 720px;
-}
-
 .visual-placeholder {
     position: relative;
     overflow: hidden;
@@ -101,21 +97,6 @@
     font-weight: 600;
     letter-spacing: .08em;
     text-transform: uppercase;
-}
-
-.partners-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
-    gap: clamp(36px, 7vw, 80px);
-    align-items: end;
-    margin-bottom: 46px;
-    border-bottom: 1px solid var(--grey-300);
-    padding-bottom: 30px;
-}
-
-.partners-heading>p {
-    margin: 0;
-    color: var(--grey-700);
 }
 
 .partner-card-grid {
@@ -253,15 +234,6 @@
     stroke-width: 1.8;
 }
 
-.belief-statement {
-    margin: 34px 0 0 auto;
-    border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
-    padding: 18px 22px;
-    color: var(--grey-700);
-    background: var(--white);
-}
-
 .commitment-layout {
     grid-template-columns: minmax(340px, .9fr) minmax(0, 1.1fr);
 }
@@ -313,15 +285,9 @@
         padding: 54px 0 70px;
     }
 
-    .partners-heading,
     .partner-card-grid--strategic,
     .partner-card-grid--advisors {
         grid-template-columns: 1fr;
-    }
-
-    .partners-heading {
-        gap: 24px;
-        align-items: start;
     }
 }
 

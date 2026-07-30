@@ -31,10 +31,6 @@ select {
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
-.page-hero .lead {
-    max-width: 720px;
-}
-
 .visual-placeholder {
     position: relative;
     overflow: hidden;
@@ -98,21 +94,6 @@ select {
     text-transform: uppercase;
 }
 
-.contact-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
-    gap: clamp(36px, 7vw, 80px);
-    align-items: end;
-    margin-bottom: 46px;
-    border-bottom: 1px solid var(--grey-300);
-    padding-bottom: 30px;
-}
-
-.contact-heading > p {
-    margin: 0;
-    color: var(--grey-700);
-}
-
 .enquiry-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -164,17 +145,6 @@ select {
 .enquiry-card > p:last-child {
     margin-bottom: 0;
     color: var(--grey-700);
-}
-
-.belief-statement {
-    margin: 34px 0 0 auto;
-    border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
-    padding: 22px 24px;
-    color: var(--grey-700);
-    background: var(--white);
-    font-size: 1.05rem;
-    font-weight: 600;
 }
 
 .contact-form-layout {
@@ -319,14 +289,8 @@ select {
         padding: 54px 0 70px;
     }
 
-    .contact-heading,
     .enquiry-grid {
         grid-template-columns: 1fr;
-    }
-
-    .contact-heading {
-        gap: 24px;
-        align-items: start;
     }
 }
 
