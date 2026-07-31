@@ -1,26 +1,3 @@
-.section-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 520px);
-    gap: clamp(36px, 7vw, 80px);
-    align-items: end;
-    margin-bottom: 46px;
-    border-bottom: 1px solid var(--grey-300);
-    padding-bottom: 30px;
-}
-
-.section-heading > p {
-    margin: 0;
-    color: var(--grey-700);
-}
-
-.section--primary .section-heading {
-    border-color: rgba(255, 255, 255, .28);
-}
-
-.section--primary .section-heading > p {
-    color: rgba(255, 255, 255, .84);
-}
-
 .home-hero {
     position: relative;
     isolation: isolate;
@@ -288,19 +265,6 @@ background: rgba(255, 255, 255, 0.5);
     color: var(--grey-700);
 }
 
-.belief-statement {
-    width: 100%;
-    max-width: none;
-    margin: 34px 0 0;
-    border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--green);
-    padding: 22px 24px;
-    color: var(--grey-700);
-    background: var(--white);
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
 .steps {
     counter-reset: steps;
 }
@@ -374,15 +338,9 @@ background: rgba(255, 255, 255, 0.5);
         max-width: 620px;
     }
 
-    .section-heading,
     .workflow-details,
     .solution-grid {
         grid-template-columns: 1fr;
-    }
-
-    .section-heading {
-        gap: 24px;
-        align-items: start;
     }
 }
 
