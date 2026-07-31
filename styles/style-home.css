@@ -22,11 +22,30 @@
 }
 
 .home-hero {
-    min-height: 720px;
+    position: relative;
+    isolation: isolate;
+    min-height: 680px;
     display: flex;
     align-items: center;
-    padding: 72px 0;
+    overflow: hidden;
+    padding: 88px 0;
     background: url("../assets/hospital-hero.jpg") center/cover no-repeat;
+}
+
+.home-hero::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+background: rgba(255, 255, 255, 0.5);
+    content: "";
+}
+
+.home-hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 600px) 1fr;
+    align-items: center;
 }
 
 .split {
@@ -37,29 +56,33 @@
 }
 
 .home-hero__content {
-    max-width: 720px;
-    border-left: 6px solid var(--secondary, var(--primary));
-    padding: clamp(30px, 5vw, 56px);
-    background: var(--white);
-    box-shadow: var(--shadow);
+    grid-column: 1;
+    max-width: 600px;
 }
 
 #hero-title {
-    max-width: 12ch;
-    color: var(--secondary, var(--primary));
-    font-size: clamp(2.8rem, 6vw, 5.3rem);
+    max-width: 11ch;
+    color: var(--grey-900);
+    font-size: clamp(3rem, 5.2vw, 4.75rem);
+    letter-spacing: -.045em;
 }
 
-#hero-title .primary {
+#hero-title .secondary {
     color: var(--green-deep);
 }
 
 #hero-title .underline {
-    border-bottom: 2px solid var(--green);
+    color: var(--grey-900);
 }
 
 .home-hero__content .lead {
-    max-width: 680px;
+    max-width: 560px;
+    margin-top: 24px;
+    color: var(--grey-900);
+}
+
+.home-hero__content .button-row {
+    margin-top: 30px;
 }
 
 .split__media {
@@ -338,7 +361,17 @@
 @media (max-width: 780px) {
     .home-hero {
         min-height: 620px;
-        padding: 54px 0 70px;
+        padding: 64px 0;
+        background-position: 62% center;
+    }
+
+    .home-hero__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero__content {
+        grid-column: 1;
+        max-width: 620px;
     }
 
     .section-heading,
@@ -356,10 +389,6 @@
 @media (max-width: 520px) {
     .home-hero {
         min-height: 560px;
-    }
-
-    .home-hero__content {
-        padding: 28px 22px;
     }
 
     .card-grid,
