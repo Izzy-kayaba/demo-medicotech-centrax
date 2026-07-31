@@ -1,0 +1,28 @@
+/*
+ * Global MedicoTech design tokens.
+ * This is the only stylesheet allowed to declare CSS custom properties.
+ */
+:root {
+
+    --primary: #0F5E63;
+    --secondary: #6CBF80;
+    --primary-dark: #0B4A4E;
+    --primary-hover: #176F74;
+    --green: #6cbf80;
+    --green-bright: #32f086;
+    --green-deep: #19740a;
+    --charcoal: #282829;
+    --grey-900: #202627;
+    --grey-700: #566164;
+    --grey-500: #7a8587;
+    --grey-300: #cbd2d3;
+    --grey-200: #e6e7e8;
+    --grey-100: #f5f7f7;
+    --white: #fff;
+    --shadow: 0 18px 45px rgba(18, 43, 45, .1);
+    --brand-gradient: linear-gradient(135deg, var(--primary) 0%, var(--green-deep) 100%);
+    --brand-gradient-soft: linear-gradient(135deg, var(--primary) 0%, var(--green-deep) 58%, var(--primary-dark) 100%);
+    --brand-gradient-horizontal: linear-gradient(90deg, var(--primary), var(--green-deep));
+    --badge-gradient: var(--brand-gradient);
+    --container: 1180px;
+}

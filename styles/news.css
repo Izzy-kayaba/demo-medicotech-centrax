@@ -1,23 +1,3 @@
-.section--primary {
-    color: var(--white);
-    background: var(--primary);
-}
-
-.section--primary h2,
-.section--primary h3 {
-    color: var(--white);
-}
-
-.section--primary .eyebrow {
-    color: var(--white);
-}
-
-.button--on-dark {
-    border-color: var(--primary);
-    color: var(--white);
-    background: var(--primary);
-}
-
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -67,31 +47,6 @@
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
-.cta {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 40px;
-    align-items: center;
-}
-
-.cta h2 {
-    max-width: 20ch;
-}
-
-.section--primary .cta {
-    padding: clamp(28px, 5vw, 56px);
-    color: var(--charcoal);
-    background: var(--white);
-}
-
-.section--primary .cta h2 {
-    color: var(--grey-900);
-}
-
-.section--primary .cta .eyebrow {
-    color: var(--white);
-}
-
 @media (max-width: 1080px) {
     .card-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -99,11 +54,6 @@
 }
 
 @media (max-width: 780px) {
-    .cta {
-        grid-template-columns: 1fr;
-        gap: 34px;
-    }
-
     .card-grid {
         grid-template-columns: 1fr;
     }
