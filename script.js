@@ -1,11 +1,16 @@
 const page = document.body.dataset.page || "";
 const pages = {
-  home: "index.html", about: "about.html",
-  services: "professional-services.html", news: "news.html", contact: "contact.html",
-  partners: "partners.html", ethics: "ethics.html", howItWorks: "how-it-works.html",
-  industries: "industries.html"
+  home: "index.html",
+  about: "about.html",
+  services: "professional-services.html",
+  news: "news.html",
+  contact: "contact.html",
+  partners: "partners.html",
+  ethics: "ethics.html",
+  howItWorks: "how-it-works.html",
+  industries: "industries.html",
 };
-const current = (key) => page === key ? ' aria-current="page"' : "";
+const current = (key) => (page === key ? ' aria-current="page"' : "");
 
 document.querySelector("#site-header").innerHTML = `
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -50,7 +55,10 @@ const nav = document.querySelector(".nav");
 menuToggle.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  menuToggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation",
+  );
   menuToggle.textContent = open ? "×" : "☰";
 });
 document.querySelectorAll(".nav__dropdown-button").forEach((button) => {
@@ -62,19 +70,22 @@ document.querySelectorAll(".nav__dropdown-button").forEach((button) => {
 });
 
 const revealItems = document.querySelectorAll(
-  "main .section > .container, .image-band__block, .contact-layout"
+  "main .section > .container, .image-band__block, .contact-layout",
 );
 if (revealItems.length && "IntersectionObserver" in window) {
   document.body.classList.add("motion-ready");
   revealItems.forEach((item) => item.classList.add("reveal"));
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+  );
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
@@ -83,7 +94,8 @@ if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const message = form.querySelector(".form-note");
-    message.textContent = "Thank you. This prototype form is ready to be connected to the WordPress form handler.";
+    message.textContent =
+      "Thank you. This prototype form is ready to be connected to the WordPress form handler.";
     message.setAttribute("role", "status");
   });
 }
