@@ -145,7 +145,7 @@ p {
     max-inline-size: none;
     margin: 24px 0 0;
     border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
+    border-left: 4px solid var(--primary, var(--secondary));
     padding: 20px 24px;
     color: var(--grey-700);
     background: var(--white);
@@ -203,8 +203,8 @@ p {
 }
 
 .button:hover {
-    border-color: var(--primary-hover);
-    background: var(--primary-hover);
+    border-color: var(--primary-dark);
+    background: var(--primary-dark);
 }
 
 .button-row {
@@ -232,6 +232,10 @@ p {
     margin-top: 26px;
 }
 
+/* ======================
+SITE HEADER
+====================== */
+
 .site-header {
     position: sticky;
     z-index: 100;
@@ -243,6 +247,7 @@ p {
     display: grid;
     grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr);
     align-items: center;
+    padding-inline: 1rem;
     min-height: 100px;
 }
 
@@ -265,7 +270,7 @@ p {
     grid-column: 2;
     align-items: center;
     justify-self: center;
-    gap: 2px;
+    gap: 0.75rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -280,7 +285,6 @@ p {
     padding: 1.5rem .55rem;
     color: var(--grey-900);
     background: transparent;
-    font-size: .86rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -364,13 +368,13 @@ p {
 }
 
 .site-footer {
-    width: min(1400px, calc(100% - 40px));
+    /* width: min(1440px, calc(100% - 40px)); */
     margin: 54px auto 0;
     overflow: hidden;
     border: 0;
     border-radius: 18px 18px 0 0;
     color: rgba(255, 255, 255, .92);
-    background: var(--brand-gradient-soft);
+    background: var(--footer-gradient);
 }
 
 .footer-main {
@@ -398,7 +402,6 @@ p {
     margin-bottom: 22px;
     padding-bottom: 13px;
     color: var(--white);
-    font-size: 1.05rem;
 }
 
 .site-footer h3::after {
@@ -419,7 +422,6 @@ p {
 
 .site-footer li {
     margin-bottom: 9px;
-    font-size: .86rem;
 }
 
 .site-footer a {
@@ -471,7 +473,7 @@ p {
     text-align: right;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
     .menu-toggle {
         display: inline-grid;
         place-items: center;
@@ -481,7 +483,7 @@ p {
     .header-inner {
         grid-template-columns: 1fr auto;
         min-height: 76px;
-        padding: 10px 0;
+        padding: 10px 0.5rem;
     }
 
     .brand {

@@ -9,7 +9,7 @@
 
 .page-hero h1 {
     max-width: 18ch;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
@@ -34,7 +34,7 @@
     display: flex;
     overflow: hidden;
     border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
+    border-left: 4px solid var(--primary, var(--secondary));
     background: var(--white);
     box-shadow: 0 10px 30px rgba(18, 43, 45, .06);
     transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
@@ -51,7 +51,7 @@
     display: grid;
     place-items: center;
     border-right: 1px solid var(--grey-200);
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     background: linear-gradient(145deg, var(--white), var(--grey-100));
     font-size: clamp(2rem, 4vw, 3.3rem);
     font-weight: 700;
@@ -64,7 +64,7 @@
 }
 
 .process-card h3 {
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
 }
 
 .process-card__body > p {
