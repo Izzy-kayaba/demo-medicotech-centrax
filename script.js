@@ -39,6 +39,21 @@ document.querySelector("#site-header").innerHTML = `
   </div>
 </div>`;
 
+const heroImages = document.querySelectorAll(".home-hero__image");
+
+if (heroImages.length > 1) {
+  let current = 0;
+
+  setInterval(() => {
+    heroImages[current].classList.remove("is-active");
+
+    current = (current + 1) % heroImages.length;
+
+    heroImages[current].classList.add("is-active");
+  }, 3000);
+}
+
+
 document.querySelector("#site-footer").innerHTML = `
   <footer class="site-footer">
     <div class="container footer-main">
