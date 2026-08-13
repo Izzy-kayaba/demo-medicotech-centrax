@@ -1,0 +1,34 @@
+{
+  "news": [
+    {
+      "id": "specialist-application-roadmap",
+      "meta": "Digital solutions · 2026",
+      "title": "MedicoTech expands its specialist application roadmap",
+      "excerpt": "New discipline-specific solutions are planned across occupational therapy, social work, industrial psychology, and additional medical specialties.",
+      "link": {
+        "text": "Request product information →",
+        "url": "contact.html"
+      }
+    },
+    {
+      "id": "flexible-specialist-support",
+      "meta": "Professional services · 2026",
+      "title": "Flexible specialist support for healthcare organisations",
+      "excerpt": "Our multidisciplinary service model helps institutions address high volumes, reporting backlogs, and complex operational requirements.",
+      "link": {
+        "text": "Explore professional services →",
+        "url": "professional-services.html"
+      }
+    },
+    {
+      "id": "professional-oversight",
+      "meta": "Responsible technology · 2026",
+      "title": "Why professional oversight remains essential",
+      "excerpt": "MedicoTech uses technology to support structured workflows while ensuring qualified practitioners remain responsible for final outputs.",
+      "link": {
+        "text": "Read our principles →",
+        "url": "ethics.html"
+      }
+    }
+  ]
+}

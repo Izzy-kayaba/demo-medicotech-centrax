@@ -14,7 +14,7 @@ const current = (key) => (page === key ? ' aria-current="page"' : "");
 
 document.querySelector("#site-header").innerHTML = `
   <a class="skip-link" href="#main">Skip to main content</a>
-  <div class="site-header"><div class="container header-inner">
+  <div class="site-header"><div class="header-inner">
     <a class="brand" href="${pages.home}" aria-label="MedicoTech home"><img src="assets/medicotech-logo.png" alt="MedicoTech — Powering Healthcare Productivity"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">☰</button>
     <nav class="nav" id="primary-nav" aria-label="Primary navigation">
@@ -36,7 +36,23 @@ document.querySelector("#site-header").innerHTML = `
       </ul>
       <a class="button login-button" href="#" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
     </nav>
-  </div></div>`;
+  </div>
+</div>`;
+
+const heroImages = document.querySelectorAll(".home-hero__image");
+
+if (heroImages.length > 1) {
+  let current = 0;
+
+  setInterval(() => {
+    heroImages[current].classList.remove("is-active");
+
+    current = (current + 1) % heroImages.length;
+
+    heroImages[current].classList.add("is-active");
+  }, 3000);
+}
+
 
 document.querySelector("#site-footer").innerHTML = `
   <footer class="site-footer">

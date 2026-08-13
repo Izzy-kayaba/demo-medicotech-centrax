@@ -16,7 +16,7 @@
 
 .page-hero h1 {
     max-width: 14ch;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
@@ -33,7 +33,7 @@
 .challenge-card {
     min-width: 0;
     border: 1px solid var(--grey-200);
-    border-top: 4px solid var(--secondary, var(--primary));
+    border-top: 4px solid var(--primary, var(--secondary));
     padding: 26px;
     background: var(--white);
     box-shadow: 0 10px 28px rgba(18, 43, 45, .055);
@@ -49,7 +49,7 @@
 .challenge-card span {
     display: block;
     margin-bottom: 22px;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     font-size: 1.55rem;
     font-weight: 700;
 }
@@ -128,7 +128,7 @@
 }
 
 .industry-card h3 {
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
 }
 
 .industry-card h4 {
