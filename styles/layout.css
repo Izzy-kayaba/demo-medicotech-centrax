@@ -578,7 +578,7 @@ SITE HEADER
     .footer-bottom p:last-child {
         text-align: left;
     }
-}
+
 
 @media (max-width: 780px) {
     .container {
