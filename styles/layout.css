@@ -240,6 +240,7 @@ SITE HEADER
     position: sticky;
     z-index: 100;
     top: 0;
+    width: 100%;
     background: rgba(255, 255, 255, .98);
 }
 
@@ -483,7 +484,7 @@ SITE HEADER
     .header-inner {
         grid-template-columns: 1fr auto;
         min-height: 76px;
-        padding: 10px 0.5rem;
+        padding: 10px 1rem;
     }
 
     .brand {
@@ -507,32 +508,51 @@ SITE HEADER
     }
 
     .nav ul {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 0;
     }
 
-    .nav a,
+    .nav a:not(.button),
     .nav__dropdown-button {
-        width: 100%;
+        font-size: 1.05rem;      
+        letter-spacing: 0.6px;   
+        font-weight: 600;
+        width: fit-content;
         justify-content: space-between;
-        padding: 12px 4px;
+        padding: 10px;
     }
 
     .nav__dropdown {
         position: static;
         translate: none;
         border: 0;
-        padding: 0 0 0 18px !important;
+        padding: 0 0 0 14px !important;
         box-shadow: none;
     }
 
     .nav .button {
-        margin-top: 10px;
-        color: var(--white);
+        display: flex;             
+        align-items: center;
+        justify-content: center;
+        width: fit-content;         
+        min-width: 140px;          
+        margin: 18px auto 0;       
+        text-align: center;
     }
 
     .nav a[aria-current="page"] {
-        box-shadow: inset 3px 0 var(--primary);
-        padding-left: 12px;
+        box-shadow: none;
+        padding-left: 8px;
+    }
+
+    .nav a:not(.button)::after {
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .footer-main {
@@ -581,7 +601,7 @@ SITE HEADER
         font-size: 2rem;
     }
 
-    .button {
+    .button:not(.nav .button) {
         width: 100%;
     }
 }
