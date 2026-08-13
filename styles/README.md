@@ -9,9 +9,9 @@ The stylesheets have three explicit levels:
 Every page must load them in that order:
 
 ```html
-<link rel="stylesheet" href="/styles/tokens.css">
-<link rel="stylesheet" href="/styles/layout.css">
-<link rel="stylesheet" href="/styles/page-name.css">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/layout.css">
+<link rel="stylesheet" href="styles/page-name.css">
 ```
 
 Page styles must consume tokens with `var(--token-name)`. They must not add `:root`

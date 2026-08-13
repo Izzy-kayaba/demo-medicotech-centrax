@@ -18,7 +18,7 @@
 
 .page-hero h1 {
     max-width: 14ch;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     font-size: clamp(2.6rem, 6vw, 5rem);
 }
 
@@ -40,7 +40,7 @@
     overflow: hidden;
     flex-direction: column;
     border: 1px solid var(--grey-200);
-    border-top: 4px solid var(--secondary, var(--primary));
+    border-top: 4px solid var(--primary, var(--secondary));
     background: var(--white);
     box-shadow: 0 10px 30px rgba(18, 43, 45, .06);
     transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
@@ -98,7 +98,7 @@
 
 .ethics-card h3 {
     margin-bottom: 14px;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
 }
 
 .ethics-card__body > p:not(.ethics-card__type) {
@@ -127,7 +127,7 @@
 
 .compliance-grid article {
     border: 1px solid var(--grey-200);
-    border-left: 4px solid var(--secondary, var(--primary));
+    border-left: 4px solid var(--primary, var(--secondary));
     padding: 18px;
     background: var(--white);
     transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
@@ -146,7 +146,7 @@
 .compliance-grid span {
     display: block;
     margin-bottom: 6px;
-    color: var(--secondary, var(--primary));
+    color: var(--primary, var(--secondary));
     font-size: .82rem;
     font-weight: 700;
     letter-spacing: .06em;
