@@ -377,16 +377,39 @@ SITE HEADER
     background: var(--footer-gradient);
 }
 
+/* --- Mobile First Default (1 Column) --- */
 .footer-main {
     display: grid;
-    grid-template-columns: .8fr .8fr 1.1fr .85fr;
-    gap: clamp(32px, 5vw, 74px);
-    padding: 64px 0 46px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0 36px;
+}
+
+/* --- Tablet Breakpoint (2 Columns) --- */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px 40px;
+    }
+}
+
+/* --- Desktop Breakpoint (Exact Original Layout Restored) --- */
+@media (min-width: 1024px) {
+    .footer-main {
+        grid-template-columns: .8fr .8fr 1.1fr .85fr;
+        gap: clamp(32px, 5vw, 74px);
+        padding: 64px 0 46px;
+    }
 }
 
 .footer-brand {
     display: flex;
     align-items: flex-start;
+}
+
+.footer-brand a {
+    display: inline-block;
+    line-height: 0;
 }
 
 .footer-logo {
@@ -439,7 +462,7 @@ SITE HEADER
     gap: 10px;
 }
 
-.footer-contact li>span:first-child {
+.footer-contact li > span:first-child {
     display: inline-grid;
     width: 28px;
     height: 28px;
@@ -451,11 +474,12 @@ SITE HEADER
     font-size: .72rem;
 }
 
+/* --- Footer Bottom (Mobile Default: Stacked) --- */
 .footer-bottom {
     display: grid;
-    grid-template-columns: 1.2fr 1fr auto;
-    gap: 24px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
     border-top: 1px solid rgba(255, 255, 255, .16);
     padding: 21px 0 25px;
     font-size: .74rem;
@@ -465,12 +489,27 @@ SITE HEADER
     margin: 0;
 }
 
-.footer-bottom p:nth-child(2) {
+.footer-bottom p:nth-child(2),
+.footer-bottom p:last-child {
     text-align: center;
 }
 
-.footer-bottom p:last-child {
-    text-align: right;
+/* --- Footer Bottom (Desktop/Tablet Layout) --- */
+@media (min-width: 768px) {
+    .footer-bottom {
+        grid-template-columns: 1.2fr 1fr auto;
+        gap: 24px;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer-bottom p:nth-child(2) {
+        text-align: center;
+    }
+
+    .footer-bottom p:last-child {
+        text-align: right;
+    }
 }
 
 @media (max-width: 1200px) {
