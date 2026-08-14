@@ -60,7 +60,6 @@
 }
 
 .page-hero h1 {
-    max-width: 16ch;
     color: var(--primary);
     font-size: clamp(2.6rem, 6vw, 5rem);
 }

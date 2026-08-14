@@ -1,10 +1,10 @@
 .article-hero {
-    padding: clamp(64px, 9vw, 112px) 0 clamp(52px, 7vw, 88px);
+    padding: clamp(32px, 9vw, 64px) 0 clamp(52px, 7vw, 88px);
     background: var(--grey-100);
 }
 
 .article-hero__inner {
-    max-width: 980px;
+    max-width: 1200px;
 }
 
 .back-link {
@@ -16,6 +16,11 @@
     font-weight: 600;
     text-decoration: none;
     transition: color .2s ease, transform .2s ease;
+}
+
+.article-hero__inner > .back-link {
+    display: flex;
+    width: fit-content;
 }
 
 .back-link:hover {
@@ -145,7 +150,7 @@
 
 .article-footer-nav {
     border-top: 1px solid var(--grey-300);
-    padding: 34px 0 72px;
+    padding: 2rem 0 1rem;
 }
 
 .article-footer-nav .back-link {
