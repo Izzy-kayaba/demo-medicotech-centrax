@@ -104,7 +104,7 @@ h3 {
 }
 
 h1 {
-    max-width: 14ch;
+    max-width: 24ch;
     font-size: clamp(2.5rem, 4vw, 4.5rem);
     letter-spacing: -.055em;
 }

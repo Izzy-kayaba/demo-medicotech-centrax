@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Read the latest news and insights from MedicoTech.">
+  <title>News Article | MedicoTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/news-article.css">
+</head>
+
+<body data-page="news">
+  <header id="site-header"></header>
+  <main id="main">
+    <article id="article" aria-labelledby="article-title" aria-live="polite" aria-busy="true">
+      <header class="article-hero">
+        <div class="container article-hero__inner">
+          <a class="back-link" href="news.html"><span aria-hidden="true">←</span> Back to News</a>
+          <p class="article-meta" id="article-meta">Loading article</p>
+          <h1 id="article-title">MedicoTech News</h1>
+          <p class="article-excerpt" id="article-excerpt">Please wait while the article is loaded.</p>
+        </div>
+      </header>
+
+      <figure class="container article-image" id="article-image" hidden>
+        <img src="" alt="" id="article-image-element">
+      </figure>
+
+      <section class="section article-section">
+        <div class="container article-layout">
+          <div class="article-content" id="article-content"></div>
+          <aside class="article-aside" aria-label="Article information">
+            <div class="article-aside__panel">
+              <p class="eyebrow">MedicoTech News</p>
+              <h2>Healthcare productivity, responsibly supported.</h2>
+              <p>Explore updates on our solutions, professional services, partnerships, and approach to healthcare.</p>
+              <a class="text-link" href="news.html">View all news <span aria-hidden="true">→</span></a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--primary article-action" id="article-action" hidden>
+        <div class="container cta">
+          <div>
+            <p class="eyebrow" id="article-action-label">Next step</p>
+            <h2 id="article-action-title">Find out more</h2>
+            <p id="article-action-text"></p>
+          </div>
+          <div class="button-row">
+            <a class="button" id="article-action-link" href="contact.html">Contact Us</a>
+          </div>
+        </div>
+      </section>
+
+      <nav class="container article-footer-nav" aria-label="News article navigation">
+        <a class="back-link" href="news.html"><span aria-hidden="true">←</span> Return to all News</a>
+      </nav>
+    </article>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/script.js"></script>
+  <script src="js/news-article.js"></script>
+</body>
+
+</html>
