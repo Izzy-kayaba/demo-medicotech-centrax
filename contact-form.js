@@ -120,10 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "Message": form.querySelector("#message").value.trim(),
       "_cc": "platforms@centraxdigital.com",
       "_subject": `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
+      "_captcha": "false",
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/info@tptmedicotech.com", {
+      const response = await fetch("https://formsubmit.co/ajax/96e8882e382d433997f393894643b5c6", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
