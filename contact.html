@@ -4,12 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Contact MedicoTech about digital solutions, professional services, partnerships, and general enquiries.">
+  <meta name="description" content="Contact MedicoTech about digital solutions, professional services, partnerships, and general enquiries.">
+  
   <title>Contact Us | MedicoTech</title>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us | MedicoTech">
+  <meta property="og:description" content="Get in touch with MedicoTech regarding healthcare software, specialist consulting, partnerships, or general enquiries.">
+  <meta property="og:image" content="assets/contact-page-nurse.jpg">
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/contact.css">
@@ -18,130 +28,153 @@
 <body data-page="contact">
   <div id="toast-container" class="toast-container" aria-live="polite"></div>
   <header id="site-header"></header>
+
   <main id="main">
-    <section class="page-hero contact-hero">
+    <!-- HERO SECTION -->
+    <section class="page-hero contact-hero" aria-labelledby="contact-hero-heading">
       <div class="container contact-hero__grid">
         <div class="contact-hero__content">
           <p class="eyebrow">Contact Us</p>
-          <h1>Ready to power your productivity?</h1>
-          <p class="lead">Whether you're looking for a digital solution to support your daily workflow, exploring
+          <h1 id="contact-hero-heading">Ready to power your productivity?</h1>
+          <p class="lead">
+            Whether you're looking for a digital solution to support your daily workflow, exploring
             specialist support for your organisation, interested in a partnership, or simply have a question, we'd love
-            to hear from you.</p>
+            to hear from you.
+          </p>
         </div>
         <figure class="image-frame image-frame--hero">
-          <img src="assets/contact-page-nurse.jpg" alt="Healthcare professional ready to assist with an enquiry">
+          <img src="assets/contact-page-nurse.jpg" 
+            alt="Healthcare professional ready to assist with an enquiry" 
+            loading="eager" 
+            width="600" 
+            height="400">
         </figure>
       </div>
     </section>
 
-    <section class="section">
+    <!-- ENQUIRY CATEGORIES -->
+    <section class="section" aria-labelledby="enquiry-heading">
       <div class="container">
         <div class="contact-heading section-intro">
           <div>
             <p class="eyebrow">Get in touch for</p>
-            <h2>Start the right conversation</h2>
+            <h2 id="enquiry-heading">Start the right conversation</h2>
           </div>
           <p class="brief-statement">Choose the enquiry area that best reflects what you need.</p>
         </div>
 
-        <div class="enquiry-grid">
-          <article class="enquiry-card">
+        <ul class="enquiry-grid" role="list">
+          <li class="enquiry-card">
             <span class="enquiry-card__number" aria-hidden="true">01</span>
             <p class="enquiry-card__type">Product enquiry</p>
             <h3>Digital Solutions</h3>
             <p>Subscriptions, onboarding, and product information</p>
-          </article>
+          </li>
 
-          <article class="enquiry-card">
+          <li class="enquiry-card">
             <span class="enquiry-card__number" aria-hidden="true">02</span>
             <p class="enquiry-card__type">Service enquiry</p>
             <h3>Professional Services</h3>
             <p>Consulting, assessments, reporting, and specialist support</p>
-          </article>
+          </li>
 
-          <article class="enquiry-card">
+          <li class="enquiry-card">
             <span class="enquiry-card__number" aria-hidden="true">03</span>
             <p class="enquiry-card__type">Collaborate</p>
             <h3>Partnership Opportunities</h3>
             <p>Collaborations, institutional engagements, and strategic initiatives</p>
-          </article>
+          </li>
 
-          <article class="enquiry-card">
+          <li class="enquiry-card">
             <span class="enquiry-card__number" aria-hidden="true">04</span>
             <p class="enquiry-card__type">Information</p>
             <h3>General Enquiries</h3>
             <p>Questions, feedback, or additional information</p>
-          </article>
-        </div>
+          </li>
+        </ul>
 
-        <p class="belief-statement">Our team is here to help you find the right MedicoTech solution for your needs and
-          guide you through the next steps.</p>
+        <p class="belief-statement">
+          Our team is here to help you find the right MedicoTech solution for your needs and guide you through the next steps.
+        </p>
       </div>
     </section>
 
-    <section class="section section--soft">
+    <!-- CONTACT FORM & DETAILS -->
+    <section class="section section--soft" aria-labelledby="contact-form-heading">
       <div class="container contact-form-layout">
         <div class="contact-form-intro">
           <p class="eyebrow">Contact form</p>
-          <h2>We Can Help.</h2>
+          <h2 id="contact-form-heading">We Can Help.</h2>
           <p class="lead">Tell us what you're looking for, and a member of the MedicoTech team will be in touch.</p>
-          <div class="contact-detail-grid">
-            <article class="contact-detail-card">
+
+          <ul class="contact-detail-grid" role="list">
+            <li class="contact-detail-card">
               <span class="contact-detail-card__icon" aria-hidden="true">☎</span>
               <div>
                 <p class="contact-detail-card__label">Phone number</p>
-                <a href="tel:+27609411024">+27-60-941-1024</a>
+                <a href="tel:+27609411024" aria-label="Call MedicoTech at +27 60 941 1024">+27-60-941-1024</a>
               </div>
-            </article>
-            <article class="contact-detail-card">
+            </li>
+
+            <li class="contact-detail-card">
               <span class="contact-detail-card__icon" aria-hidden="true">✉</span>
               <div>
                 <p class="contact-detail-card__label">Email address</p>
-                <a href="mailto:info@tptmedicotech.com">info@tptmedicotech.com</a>
+                <a href="mailto:info@tptmedicotech.com" aria-label="Email MedicoTech at info@tptmedicotech.com">info@tptmedicotech.com</a>
               </div>
-            </article>
-          </div>
+            </li>
+          </ul>
         </div>
 
-            <form class="form" action="#" method="post" novalidate>
-      <div class="field">
-        <label for="first-name">First name <span class="required-star">*</span></label>
-        <input id="first-name" name="first-name" autocomplete="given-name" minlength="2" maxlength="50" required>
-      </div>
-      <div class="field">
-        <label for="last-name">Last name <span class="required-star">*</span></label>
-        <input id="last-name" name="last-name" autocomplete="family-name" minlength="2" maxlength="50" required>
-      </div>
-      <div class="field field--full">
-        <label for="email">Email address <span class="required-star">*</span></label>
-        <input id="email" name="email" type="email" autocomplete="email" maxlength="100" required>
-      </div>
-      <div class="field field--full">
-        <label for="organisation">Organisation <span class="optional-tag">(Optional)</span></label>
-        <input id="organisation" name="organisation" autocomplete="organization" maxlength="100">
-      </div>
-      <div class="field field--full">
-        <label for="enquiry">Enquiry type <span class="required-star">*</span></label>
-        <select id="enquiry" name="enquiry" required>
-          <option value="">Select an enquiry</option>
-          <option value="Digital Solutions">Digital Solutions</option>
-          <option value="Professional Services">Professional Services</option>
-          <option value="Partnership Opportunities">Partnership Opportunities</option>
-          <option value="General Enquiry">General Enquiry</option>
-        </select>
-      </div>
-      <div class="field field--full">
-        <label for="message">How can we help? <span class="required-star">*</span></label>
-        <textarea id="message" name="message" minlength="10" maxlength="2000" rows="5" required></textarea>
-      </div>
-      <div class="field field--full">
-        <button class="button" type="submit">Send Enquiry</button>
-      </div>
-      <p class="form-note">By submitting this form, you agree that MedicoTech may use the information provided to respond to your enquiry.</p>
-    </form>
+        <form class="form" action="#" method="post" aria-labelledby="contact-form-heading">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input id="first-name" name="first-name" type="text" autocomplete="given-name" required aria-required="true">
+          </div>
+
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input id="last-name" name="last-name" type="text" autocomplete="family-name" required aria-required="true">
+          </div>
+
+          <div class="field field--full">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-required="true">
+          </div>
+
+          <div class="field field--full">
+            <label for="organisation">Organisation</label>
+            <input id="organisation" name="organisation" type="text" autocomplete="organization">
+          </div>
+
+          <div class="field field--full">
+            <label for="enquiry">Enquiry type</label>
+            <select id="enquiry" name="enquiry" required aria-required="true">
+              <option value="">Select an enquiry</option>
+              <option value="Digital Solutions">Digital Solutions</option>
+              <option value="Professional Services">Professional Services</option>
+              <option value="Partnership Opportunities">Partnership Opportunities</option>
+              <option value="General Enquiry">General Enquiry</option>
+            </select>
+          </div>
+
+          <div class="field field--full">
+            <label for="message">How can we help?</label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+          </div>
+
+          <div class="field field--full">
+            <button class="button" type="submit">Send Enquiry</button>
+          </div>
+
+          <p class="form-note">
+            By submitting this form, you agree that MedicoTech may use the information provided to respond to your enquiry.
+          </p>
+        </form>
       </div>
     </section>
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
   <script src="js/contact-form.js"></script>
   <script src="js/script.js"></script>

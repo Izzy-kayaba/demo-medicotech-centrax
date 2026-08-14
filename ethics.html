@@ -5,10 +5,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MedicoTech ethics, compliance, privacy, and human oversight principles.">
+  
   <title>Ethics &amp; Compliance | MedicoTech</title>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ethics & Compliance | MedicoTech">
+  <meta property="og:description" content="Responsible technology, data privacy, POPIA compliance, and professional healthcare accountability.">
+  <meta property="og:image" content="assets/healthcare-team.jpg">
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/ethics.css">
@@ -16,172 +27,258 @@
 
 <body data-page="ethics">
   <header id="site-header"></header>
+
   <main id="main">
-    <section class="page-hero ethics-hero">
+    <!-- HERO SECTION -->
+    <section class="page-hero ethics-hero" aria-labelledby="ethics-hero-heading">
       <div class="container ethics-hero__grid">
         <div class="ethics-hero__content">
           <p class="eyebrow">Ethics &amp; Compliance</p>
-          <h1>Responsible technology. Professional accountability.</h1>
-          <p class="lead">Our approach combines technology, structured systems, and human expertise to improve
+          <h1 id="ethics-hero-heading">Responsible technology. Professional accountability.</h1>
+          <p class="lead">
+            Our approach combines technology, structured systems, and human expertise to improve
             productivity while ensuring that accountability, ethics, and professional judgement remain firmly in the
-            hands of qualified healthcare professionals.</p>
+            hands of qualified healthcare professionals.
+          </p>
         </div>
         <figure class="image-frame image-frame--hero">
-          <img src="assets/healthcare-team.jpg" alt="Healthcare team collaborating responsibly">
+          <img src="assets/healthcare-team.jpg" 
+            alt="Healthcare team collaborating responsibly" 
+            loading="eager" 
+            width="600" 
+            height="400">
         </figure>
       </div>
     </section>
 
-    <section class="section">
+    <!-- TRUST BY DESIGN -->
+    <section class="section" aria-labelledby="trust-design-heading">
       <div class="container">
         <div class="ethics-heading section-intro">
           <div>
             <p class="eyebrow">Trust by design</p>
-            <h2>Protecting information and strengthening confidence</h2>
+            <h2 id="trust-design-heading">Protecting information and strengthening confidence</h2>
           </div>
-          <p class="brief-statement">Responsible healthcare systems begin with secure information practices, transparent workflows, and
-            professionally governed processes.</p>
+          <p class="brief-statement">
+            Responsible healthcare systems begin with secure information practices, transparent workflows, and
+            professionally governed processes.
+          </p>
         </div>
 
-        <div class="ethics-card-grid">
-          <article class="ethics-card">
+        <ul class="ethics-card-grid" role="list">
+          <li class="ethics-card">
             <figure class="ethics-card__visual image-frame">
               <img src="assets/close-up-of-businessman-making-diary-notes-at-tabl-2026-01-05-06-08-58-utc-scaled.jpg"
-                alt="Professional documenting information securely" loading="lazy">
+                alt="Professional documenting information securely" 
+                loading="lazy" 
+                width="500" 
+                height="320">
             </figure>
             <div class="ethics-card__body">
               <p class="ethics-card__type">Privacy principle</p>
               <h3>Data Protection &amp; Privacy</h3>
-              <p>Protecting sensitive information is fundamental to our work. MedicoTech applies strict data protection
+              <p>
+                Protecting sensitive information is fundamental to our work. MedicoTech applies strict data protection
                 practices aligned with the Protection of Personal Information Act (POPIA) and recognised data security
-                principles.</p>
-              <p>Our systems are designed to support the secure collection, storage, management, and handling of personal
+                principles.
+              </p>
+              <p>
+                Our systems are designed to support the secure collection, storage, management, and handling of personal
                 and healthcare-related information through controlled, responsible, and professionally governed
-                processes.</p>
+                processes.
+              </p>
             </div>
-          </article>
+          </li>
 
-          <article class="ethics-card">
+          <li class="ethics-card">
             <figure class="ethics-card__visual image-frame">
-              <img src="assets/patient-care.jpg" alt="Healthcare professional building trust through patient care"
-                loading="lazy">
+              <img src="assets/patient-care.jpg" 
+                alt="Healthcare professional building trust through patient care"
+                loading="lazy" 
+                width="500" 
+                height="320">
             </figure>
             <div class="ethics-card__body">
               <p class="ethics-card__type">Trust principle</p>
               <h3>Built for Trust</h3>
-              <p>Healthcare professionals, institutions, and the individuals they serve depend on information that is
-                accurate, consistent, and reliable.</p>
-              <p>For this reason, ethics and professional responsibility are embedded into every aspect of our solutions
+              <p>
+                Healthcare professionals, institutions, and the individuals they serve depend on information that is
+                accurate, consistent, and reliable.
+              </p>
+              <p>
+                For this reason, ethics and professional responsibility are embedded into every aspect of our solutions
                 and services. We design systems that support transparency, accountability, and defensible professional
-                outputs while maintaining appropriate safeguards throughout the workflow.</p>
+                outputs while maintaining appropriate safeguards throughout the workflow.
+              </p>
             </div>
-          </article>
-        </div>
+          </li>
+        </ul>
 
-        <p class="belief-statement">Accountability, ethics, and professional judgement remain firmly in the hands of
-          qualified healthcare professionals.</p>
+        <p class="belief-statement">
+          Accountability, ethics, and professional judgement remain firmly in the hands of qualified healthcare professionals.
+        </p>
       </div>
     </section>
 
-    <section class="section section--soft">
+    <!-- PROFESSIONALS IN CONTROL -->
+    <section class="section section--soft" aria-labelledby="professionals-control-heading">
       <div class="container">
         <div class="ethics-heading section-intro">
           <div>
             <p class="eyebrow">Professionals in control</p>
-            <h2>Technology supports the work. Expertise directs it.</h2>
+            <h2 id="professionals-control-heading">Technology supports the work. Expertise directs it.</h2>
           </div>
-          <p class="brief-statement">MedicoTech places qualified healthcare professionals at the centre of every workflow, decision, and
-            outcome.</p>
+          <p class="brief-statement">
+            MedicoTech places qualified healthcare professionals at the centre of every workflow, decision, and outcome.
+          </p>
         </div>
 
-        <div class="ethics-card-grid">
-          <article class="ethics-card">
+        <ul class="ethics-card-grid" role="list">
+          <li class="ethics-card">
             <figure class="ethics-card__visual image-frame">
-              <img src="assets/digital-healthcare.png" alt="Digital technology supporting healthcare professionals"
-                loading="lazy">
+              <img src="assets/digital-healthcare.png" 
+                alt="Digital technology supporting healthcare professionals"
+                loading="lazy" 
+                width="500" 
+                height="320">
             </figure>
             <div class="ethics-card__body">
               <p class="ethics-card__type">Technology principle</p>
               <h3>Technology as Support, Not Replacement</h3>
               <p>MedicoTech does not position technology as a replacement for professional expertise.</p>
-              <p>Our digital solutions are designed to support healthcare professionals by reducing administrative
+              <p>
+                Our digital solutions are designed to support healthcare professionals by reducing administrative
                 burden, improving workflow efficiency, and assisting with information management and documentation
-                processes.</p>
-              <p>Technology helps organise, structure, and support work. Professional judgement, interpretation,
-                decision-making, and accountability remain the responsibility of qualified healthcare professionals.</p>
+                processes.
+              </p>
+              <p>
+                Technology helps organise, structure, and support work. Professional judgement, interpretation,
+                decision-making, and accountability remain the responsibility of qualified healthcare professionals.
+              </p>
             </div>
-          </article>
+          </li>
 
-          <article class="ethics-card">
+          <li class="ethics-card">
             <figure class="ethics-card__visual image-frame">
-              <img src="assets/image00036-scaled.jpeg" alt="Qualified professional reviewing a healthcare workflow"
-                loading="lazy">
+              <img src="assets/image00036-scaled.jpeg" 
+                alt="Qualified professional reviewing a healthcare workflow"
+                loading="lazy" 
+                width="500" 
+                height="320">
             </figure>
             <div class="ethics-card__body">
               <p class="ethics-card__type">Oversight principle</p>
               <h3>Human Oversight</h3>
               <p>MedicoTech operates on a healthcare-professional-in-control principle.</p>
-              <p>Every workflow is designed to ensure that qualified professionals remain responsible for reviewing,
+              <p>
+                Every workflow is designed to ensure that qualified professionals remain responsible for reviewing,
                 validating, approving, and signing off on their work. Technology supports the process, but professional
-                expertise remains at the centre of every outcome.</p>
-              <p>This approach helps maintain professional integrity while improving efficiency, consistency, and
-                productivity.</p>
+                expertise remains at the centre of every outcome.
+              </p>
+              <p>
+                This approach helps maintain professional integrity while improving efficiency, consistency, and
+                productivity.
+              </p>
             </div>
-          </article>
-        </div>
+          </li>
+        </ul>
 
-        <p class="belief-statement">Technology supports the process, but professional expertise remains at the centre of
-          every outcome.</p>
+        <p class="belief-statement">
+          Technology supports the process, but professional expertise remains at the centre of every outcome.
+        </p>
       </div>
     </section>
 
-    <section class="section">
+    <!-- COMPLIANCE & GOVERNANCE -->
+    <section class="section" aria-labelledby="governance-heading">
       <div class="container governance-layout">
         <figure class="image-frame image-frame--governance">
           <img src="assets/businesswoman-and-engineer-discussing-plans-on-tab-2026-01-05-22-52-53-utc-scaled.jpg"
-            alt="Professionals reviewing governance requirements" loading="lazy">
+            alt="Professionals reviewing governance requirements" 
+            loading="lazy" 
+            width="500" 
+            height="350">
         </figure>
 
         <div class="governance-content">
           <p class="eyebrow">Compliance &amp; Governance</p>
-          <h2>Responsible frameworks embedded into every workflow</h2>
-          <p>MedicoTech is designed to operate in alignment with applicable professional, ethical, and regulatory
-            frameworks.</p>
-          <p>Depending on the environment in which our solutions are used, this may include alignment with requirements
-            and principles associated with:</p>
+          <h2 id="governance-heading">Responsible frameworks embedded into every workflow</h2>
+          <p>
+            MedicoTech is designed to operate in alignment with applicable professional, ethical, and regulatory
+            frameworks.
+          </p>
+          <p>
+            Depending on the environment in which our solutions are used, this may include alignment with requirements
+            and principles associated with:
+          </p>
 
-          <div class="compliance-grid">
-            <article><span>POPIA</span><p>Protection of Personal Information Act</p></article>
-            <article><span>HPCSA</span><p>Health Professions Council of South Africa</p></article>
-            <article><span>SAHPRA</span><p>South African Health Products Regulatory Authority</p></article>
-            <article><span>Ethics</span><p>Professional ethical guidelines and codes of conduct</p></article>
-            <article><span>Governance</span><p>Organisational governance and compliance requirements</p></article>
-          </div>
-
+          <ul class="compliance-grid" role="list">
+            <li>
+              <article>
+                <span>POPIA</span>
+                <p>Protection of Personal Information Act</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span>HPCSA</span>
+                <p>Health Professions Council of South Africa</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span>SAHPRA</span>
+                <p>South African Health Products Regulatory Authority</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span>Ethics</span>
+                <p>Professional ethical guidelines and codes of conduct</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <span>Governance</span>
+                <p>Organisational governance and compliance requirements</p>
+              </article>
+            </li>
+          </ul>
         </div>
-        <p class="belief-statement">Compliance is not treated as a separate activity. It is embedded into the way our
-          systems, services, and workflows are designed and delivered.</p>
+      </div>
+      <div class="container">
+        <p class="belief-statement">
+          Compliance is not treated as a separate activity. It is embedded into the way our
+          systems, services, and workflows are designed and delivered.
+        </p>
       </div>
     </section>
 
-    <section class="section section--soft">
+    <!-- COMMITMENT SECTION -->
+    <section class="section section--soft" aria-labelledby="ethics-commitment-heading">
       <div class="container commitment-layout">
         <figure class="image-frame image-frame--commitment">
           <img src="assets/african-american-family-patient-walk-through-corri-2026-01-06-10-34-02-utc-scaled.jpg"
-            alt="Healthcare professional supporting patients with integrity" loading="lazy">
+            alt="Healthcare professional supporting patients with integrity" 
+            loading="lazy" 
+            width="500" 
+            height="350">
         </figure>
         <div class="commitment-content">
           <p class="eyebrow">Our Commitment</p>
-          <h2>Healthcare productivity and professional integrity should work together</h2>
+          <h2 id="ethics-commitment-heading">Healthcare productivity and professional integrity should work together</h2>
           <p>We believe healthcare productivity and professional integrity should work together.</p>
-          <p>By combining healthcare expertise, structured systems, and technology-enabled workflows, MedicoTech helps
+          <p>
+            By combining healthcare expertise, structured systems, and technology-enabled workflows, MedicoTech helps
             professionals and organisations work more efficiently while protecting the standards, ethics, and
-            accountability that healthcare demands.</p>
+            accountability that healthcare demands.
+          </p>
           <a class="button" href="contact.html">Contact Our Team</a>
         </div>
       </div>
     </section>
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
   <script src="js/script.js"></script>
 </body>

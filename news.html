@@ -4,11 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="News and updates from MedicoTech.">
-  <title>News | MedicoTech</title>
+  <meta name="description" content="News, product milestones, partnerships, and updates from MedicoTech.">
+  
+  <title>News &amp; Updates | MedicoTech</title>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="News & Updates | MedicoTech">
+  <meta property="og:description" content="Product milestones, organisational developments, partnerships, and perspectives on responsible healthcare productivity.">
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/news.css">
@@ -16,52 +26,85 @@
 
 <body data-page="news">
   <header id="site-header"></header>
+
   <main id="main">
-    <section class="page-hero">
+    <!-- HERO SECTION -->
+    <section class="page-hero" aria-labelledby="news-hero-heading">
       <div class="container">
         <p class="eyebrow">News</p>
-        <h1>Updates from MedicoTech</h1>
-        <p class="lead">Product milestones, organisational developments, partnerships, and perspectives on responsible
-          healthcare productivity.</p>
+        <h1 id="news-hero-heading">Updates from MedicoTech</h1>
+        <p class="lead">
+          Product milestones, organisational developments, partnerships, and perspectives on responsible
+          healthcare productivity.
+        </p>
       </div>
     </section>
-    <section class="section">
+
+    <!-- LATEST UPDATES FEED -->
+    <section class="section" aria-labelledby="latest-updates-heading">
       <div class="container">
         <div class="section-heading section-intro">
           <div>
             <p class="eyebrow">Latest updates</p>
-            <h2>Building practical healthcare capacity</h2>
+            <h2 id="latest-updates-heading">Building practical healthcare capacity</h2>
           </div>
+          <p class="brief-statement">
+            These prototype article cards are ready to connect to the WordPress news feed.
+          </p>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <p class="card__meta">Digital solutions · 2026</p>
-            <h3>MedicoTech expands its specialist application roadmap</h3>
-            <p>New discipline-specific solutions are planned across occupational therapy, social work, industrial
-              psychology, and additional medical specialties.</p><a
-              href="news-article.html?id=specialist-application-roadmap">Read article →</a>
-          </article>
-          <article class="card">
-            <p class="card__meta">Professional services · 2026</p>
-            <h3>Flexible specialist support for healthcare organisations</h3>
-            <p>Our multidisciplinary service model helps institutions address high volumes, reporting backlogs, and
-              complex operational requirements.</p><a
-              href="news-article.html?id=flexible-specialist-support">Read article →</a>
-          </article>
-          <article class="card">
-            <p class="card__meta">Responsible technology · 2026</p>
-            <h3>Why professional oversight remains essential</h3>
-            <p>MedicoTech uses technology to support structured workflows while ensuring qualified practitioners remain
-              responsible for final outputs.</p><a href="news-article.html?id=professional-oversight">Read article →</a>
-          </article>
-        </div>
+
+        <ul class="card-grid" role="list">
+          <li>
+            <article class="card">
+              <p class="card__meta">Digital solutions &middot; <time datetime="2026">2026</time></p>
+              <h3>MedicoTech expands its specialist application roadmap</h3>
+              <p>
+                New discipline-specific solutions are planned across occupational therapy, social work, industrial
+                psychology, and additional medical specialties.
+              </p>
+              <a href="contact.html" aria-label="Request product information about our application roadmap">
+                Request product information &rarr;
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <p class="card__meta">Professional services &middot; <time datetime="2026">2026</time></p>
+              <h3>Flexible specialist support for healthcare organisations</h3>
+              <p>
+                Our multidisciplinary service model helps institutions address high volumes, reporting backlogs, and
+                complex operational requirements.
+              </p>
+              <a href="professional-services.html" aria-label="Explore professional services and specialist support">
+                Explore professional services &rarr;
+              </a>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <p class="card__meta">Responsible technology &middot; <time datetime="2026">2026</time></p>
+              <h3>Why professional oversight remains essential</h3>
+              <p>
+                MedicoTech uses technology to support structured workflows while ensuring qualified practitioners remain
+                responsible for final outputs.
+              </p>
+              <a href="ethics.html" aria-label="Read our ethics and compliance principles">
+                Read our principles &rarr;
+              </a>
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
-    <section class="section section--primary">
+
+    <!-- CTA SECTION -->
+    <section class="section section--primary" aria-labelledby="news-cta-heading">
       <div class="container cta">
         <div>
           <p class="eyebrow">Stay connected</p>
-          <h2>Looking for a specific update?</h2>
+          <h2 id="news-cta-heading">Looking for a specific update?</h2>
           <p>Contact our team for product, partnership, or organisational information.</p>
         </div>
         <div class="button-row">
@@ -70,6 +113,7 @@
       </div>
     </section>
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
   <script src="js/script.js"></script>
 </body>
