@@ -16,6 +16,7 @@
 </head>
 
 <body data-page="contact">
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
   <header id="site-header"></header>
   <main id="main">
     <section class="page-hero contact-hero">
@@ -102,48 +103,48 @@
           </div>
         </div>
 
-        <form class="form" action="#" method="post">
-          <div class="field">
-            <label for="first-name">First name</label>
-            <input id="first-name" name="first-name" autocomplete="given-name" required>
-          </div>
-          <div class="field">
-            <label for="last-name">Last name</label>
-            <input id="last-name" name="last-name" autocomplete="family-name" required>
-          </div>
-          <div class="field field--full">
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field field--full">
-            <label for="organisation">Organisation</label>
-            <input id="organisation" name="organisation" autocomplete="organization">
-          </div>
-          <div class="field field--full">
-            <label for="enquiry">Enquiry type</label>
-            <select id="enquiry" name="enquiry" required>
-              <option value="">Select an enquiry</option>
-              <option>Digital Solutions</option>
-              <option>Professional Services</option>
-              <option>Partnership Opportunities</option>
-              <option>General Enquiry</option>
-            </select>
-          </div>
-          <div class="field field--full">
-            <label for="message">How can we help?</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-          <div class="field field--full">
-            <button class="button" type="submit">Send Enquiry</button>
-          </div>
-          <p class="form-note">By submitting this form, you agree that MedicoTech may use the information provided to
-            respond to your enquiry.</p>
-        </form>
+            <form class="form" action="#" method="post" novalidate>
+      <div class="field">
+        <label for="first-name">First name <span class="required-star">*</span></label>
+        <input id="first-name" name="first-name" autocomplete="given-name" minlength="2" maxlength="50" required>
+      </div>
+      <div class="field">
+        <label for="last-name">Last name <span class="required-star">*</span></label>
+        <input id="last-name" name="last-name" autocomplete="family-name" minlength="2" maxlength="50" required>
+      </div>
+      <div class="field field--full">
+        <label for="email">Email address <span class="required-star">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" maxlength="100" required>
+      </div>
+      <div class="field field--full">
+        <label for="organisation">Organisation <span class="optional-tag">(Optional)</span></label>
+        <input id="organisation" name="organisation" autocomplete="organization" maxlength="100">
+      </div>
+      <div class="field field--full">
+        <label for="enquiry">Enquiry type <span class="required-star">*</span></label>
+        <select id="enquiry" name="enquiry" required>
+          <option value="">Select an enquiry</option>
+          <option value="Digital Solutions">Digital Solutions</option>
+          <option value="Professional Services">Professional Services</option>
+          <option value="Partnership Opportunities">Partnership Opportunities</option>
+          <option value="General Enquiry">General Enquiry</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="message">How can we help? <span class="required-star">*</span></label>
+        <textarea id="message" name="message" minlength="10" maxlength="2000" rows="5" required></textarea>
+      </div>
+      <div class="field field--full">
+        <button class="button" type="submit">Send Enquiry</button>
+      </div>
+      <p class="form-note">By submitting this form, you agree that MedicoTech may use the information provided to respond to your enquiry.</p>
+    </form>
       </div>
     </section>
   </main>
   <footer id="site-footer" class="site-footer"></footer>
   <script src="script.js"></script>
+  <script src="contact-form.js"></script>
 </body>
 
 </html>
