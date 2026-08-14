@@ -118,9 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "Organisation": form.querySelector("#organisation").value.trim() || "N/A",
       "Enquiry Type": form.querySelector("#enquiry").value,
       "Message": form.querySelector("#message").value.trim(),
-      "_cc": "platforms@centraxdigital.com",
+      "_cc": "info@tptmedicotech.com",
       "_subject": `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
-      "_captcha": "false",
+      "_captcha": "true",
     };
 
     try {
