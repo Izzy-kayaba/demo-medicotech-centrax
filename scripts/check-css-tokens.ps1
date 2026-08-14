@@ -111,21 +111,21 @@ foreach ($cssFile in $cssFiles | Where-Object { $_.FullName -ne $tokensPath }) {
 $htmlFiles = Get-ChildItem -LiteralPath $projectRoot -Filter "*.html"
 foreach ($htmlFile in $htmlFiles) {
     $html = Get-Content -Raw -LiteralPath $htmlFile.FullName
-    $tokenLinks = [regex]::Matches($html, 'href=["'']\/styles\/tokens\.css["'']')
-    $layoutLinks = [regex]::Matches($html, 'href=["'']\/styles\/layout\.css["'']')
+    $tokenLinks = [regex]::Matches($html, 'href=["'']\/?styles\/tokens\.css["'']')
+    $layoutLinks = [regex]::Matches($html, 'href=["'']\/?styles\/layout\.css["'']')
     $localStyles = [regex]::Matches(
         $html,
-        'href=["''](\/styles\/[^"'']+\.css)["'']',
+        'href=["''](\/?styles\/[^"'']+\.css)["'']',
         [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
     )
 
     if ($tokenLinks.Count -ne 1) {
-        $errors.Add("$($htmlFile.Name) must load /styles/tokens.css exactly once.")
+        $errors.Add("$($htmlFile.Name) must load styles/tokens.css exactly once.")
         continue
     }
 
     if ($layoutLinks.Count -ne 1) {
-        $errors.Add("$($htmlFile.Name) must load /styles/layout.css exactly once.")
+        $errors.Add("$($htmlFile.Name) must load styles/layout.css exactly once.")
         continue
     }
 
@@ -135,8 +135,8 @@ foreach ($htmlFile in $htmlFiles) {
 
     if (
         $localStyles.Count -lt 2 -or
-        $localStyles[0].Groups[1].Value -ne "/styles/tokens.css" -or
-        $localStyles[1].Groups[1].Value -ne "/styles/layout.css"
+        $localStyles[0].Groups[1].Value.TrimStart("/") -ne "styles/tokens.css" -or
+        $localStyles[1].Groups[1].Value.TrimStart("/") -ne "styles/layout.css"
     ) {
         $errors.Add(
             "$($htmlFile.Name) stylesheet order must be tokens.css, layout.css, then the page stylesheet."
