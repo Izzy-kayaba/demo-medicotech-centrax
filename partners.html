@@ -5,17 +5,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MedicoTech partners, collaborators, and professional advisors.">
+  
   <title>Partners &amp; Collaborators | MedicoTech</title>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Partners & Collaborators | MedicoTech">
+  <meta property="og:description" content="Building better healthcare through strategic partnerships, advisors, and collaborative networks.">
+  <meta property="og:image" content="assets/partners-hero.png">
+
+  <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/partners.css">
 </head>
 
 <body data-page="partners">
-  <svg class="icon-sprite" aria-hidden="true">
+  <!-- SVG Sprite -->
+  <svg class="icon-sprite" aria-hidden="true" style="display: none;">
     <symbol id="icon-x" viewBox="0 0 24 24">
       <path d="M5 4l14 16M19 4L5 20"></path>
     </symbol>
@@ -34,274 +46,282 @@
   </svg>
 
   <header id="site-header"></header>
+
   <main id="main">
-    <section class="page-hero partners-hero">
+    <!-- HERO SECTION -->
+    <section class="page-hero partners-hero" aria-labelledby="partners-hero-heading">
       <div class="container partners-hero__grid">
         <div class="partners-hero__content">
           <p class="eyebrow">Partners &amp; Collaborators</p>
-          <h1>Building Better Healthcare Through Collaboration</h1>
-          <p class="lead">MedicoTech believes meaningful innovation happens through collaboration. We work alongside
+          <h1 id="partners-hero-heading">Building Better Healthcare Through Collaboration</h1>
+          <p class="lead">
+            MedicoTech believes meaningful innovation happens through collaboration. We work alongside
             healthcare professionals, institutions, advisors, and strategic organisations who share a commitment to
-            improving healthcare efficiency, professional practice, and service delivery.</p>
-          <p>These relationships help us strengthen our understanding of healthcare challenges, refine our solutions,
-            and build technology that serves real-world professional needs.</p>
+            improving healthcare efficiency, professional practice, and service delivery.
+          </p>
+          <p>
+            These relationships help us strengthen our understanding of healthcare challenges, refine our solutions,
+            and build technology that serves real-world professional needs.
+          </p>
         </div>
         <figure class="image-frame image-frame--hero">
-          <img src="assets/partners-hero.png" alt="Healthcare professionals collaborating">
+          <img src="assets/partners-hero.png" alt="Healthcare professionals collaborating" loading="eager" width="600" height="400">
         </figure>
       </div>
     </section>
 
-    <section class="section">
+    <!-- STRATEGIC PARTNERS -->
+    <section class="section" aria-labelledby="strategic-network-heading">
       <div class="container">
         <div class="partners-heading section-intro">
           <div>
             <p class="eyebrow">Strategic network</p>
-            <h2>Strategic Partners &amp; Collaborators</h2>
+            <h2 id="strategic-network-heading">Strategic Partners &amp; Collaborators</h2>
           </div>
         </div>
 
-        <div class="partner-card-grid partner-card-grid--strategic">
-          <article class="partner-card">
+        <ul class="partner-card-grid partner-card-grid--strategic" role="list">
+          <!-- WHC -->
+          <li class="partner-card">
             <figure class="partner-card__visual image-frame">
-              <img src="assets/Wits Health Consortium (WHC).jpg" alt="Wits Health Consortium logo" loading="lazy">
+              <img src="assets/Wits Health Consortium (WHC).jpg" alt="Wits Health Consortium logo" loading="lazy" width="400" height="250">
             </figure>
             <div class="partner-card__body">
               <p class="partner-card__type">Strategic partner</p>
               <h3>Wits Health Consortium (WHC)</h3>
-              <p>A leading shared-services and contracting organisation within the University of the Witwatersrand,
+              <p>
+                A leading shared-services and contracting organisation within the University of the Witwatersrand,
                 supporting large-scale health programmes, research initiatives, and service delivery across South
-                Africa.</p>
+                Africa.
+              </p>
               <nav class="social-links" aria-label="Wits Health Consortium social links">
-                <a href="#" aria-label="Wits Health Consortium on X — link to be supplied"
-                  title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="Wits Health Consortium on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email Wits Health Consortium — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="Wits Health Consortium on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="Wits Health Consortium on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="Wits Health Consortium on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email Wits Health Consortium — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="Wits Health Consortium on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
+          </li>
 
-          <article class="partner-card">
+          <!-- HSEI -->
+          <li class="partner-card">
             <figure class="partner-card__visual image-frame">
-              <img src="assets/HSEI (Health Systems Enablement & Innovation).png"
-                alt="Health Systems Enablement and Innovation logo" loading="lazy">
+              <img src="assets/HSEI (Health Systems Enablement & Innovation).png" alt="Health Systems Enablement and Innovation logo" loading="lazy" width="400" height="250">
             </figure>
             <div class="partner-card__body">
               <p class="partner-card__type">Strategic collaborator</p>
               <h3>HSEI (Health Systems Enablement &amp; Innovation)</h3>
-              <p>A division of Wits Health Consortium focused on strengthening public health systems through operational
+              <p>
+                A division of Wits Health Consortium focused on strengthening public health systems through operational
                 improvement, innovation, and capacity building in collaboration with government and healthcare
-                stakeholders.</p>
+                stakeholders.
+              </p>
               <nav class="social-links" aria-label="HSEI social links">
-                <a href="#" aria-label="HSEI on X — link to be supplied" title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="HSEI on YouTube — link to be supplied" title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email HSEI — address to be supplied" title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="HSEI on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="HSEI on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="HSEI on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email HSEI — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="HSEI on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
+          </li>
 
-          <article class="partner-card">
+          <!-- E-SQUARED -->
+          <li class="partner-card">
             <figure class="partner-card__visual image-frame">
-              <img src="assets/E-Squared Investments.png" alt="E-Squared Investments logo" loading="lazy">
+              <img src="assets/E-Squared Investments.png" alt="E-Squared Investments logo" loading="lazy" width="400" height="250">
             </figure>
             <div class="partner-card__body">
               <p class="partner-card__type">Investment partner</p>
               <h3>E-Squared Investments</h3>
-              <p>An impact investment organisation that supports high-potential ventures through patient capital,
+              <p>
+                An impact investment organisation that supports high-potential ventures through patient capital,
                 mentorship, and strategic guidance, helping businesses scale sustainable impact across Southern Africa.
               </p>
               <nav class="social-links" aria-label="E-Squared Investments social links">
-                <a href="#" aria-label="E-Squared Investments on X — link to be supplied"
-                  title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="E-Squared Investments on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email E-Squared Investments — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="E-Squared Investments on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="E-Squared Investments on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="E-Squared Investments on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email E-Squared Investments — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="E-Squared Investments on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
-        </div>
-        <p class="belief-statement">Organisations helping connect healthcare insight, operational capability, innovation,
-          and sustainable
-          impact.</p>
+          </li>
+        </ul>
+
+        <p class="belief-statement">
+          Organisations helping connect healthcare insight, operational capability, innovation, and sustainable impact.
+        </p>
       </div>
     </section>
 
-    <section class="section section--soft">
+    <!-- PROFESSIONAL ADVISORS -->
+    <section class="section section--soft" aria-labelledby="professional-network-heading">
       <div class="container">
         <div class="partners-heading section-intro">
           <div>
             <p class="eyebrow">Professional network</p>
-            <h2>Professional Advisors &amp; Contributors</h2>
+            <h2 id="professional-network-heading">Professional Advisors &amp; Contributors</h2>
           </div>
         </div>
 
-        <div class="partner-card-grid partner-card-grid--advisors">
-          <article class="partner-card">
+        <ul class="partner-card-grid partner-card-grid--advisors" role="list">
+          <!-- DR FUNANI -->
+          <li class="partner-card">
             <div class="partner-card__body">
               <p class="partner-card__type">Professional advisor</p>
               <h3>Dr Ntsikelelo Itumeleng Funani</h3>
-              <p>Medical doctor and public health executive with extensive experience in health systems, strategy,
-                planning, and programme implementation.</p>
+              <p>
+                Medical doctor and public health executive with extensive experience in health systems, strategy,
+                planning, and programme implementation.
+              </p>
               <nav class="social-links" aria-label="Dr Ntsikelelo Itumeleng Funani social links">
-                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on X — link to be supplied"
-                  title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email Dr Ntsikelelo Itumeleng Funani — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email Dr Ntsikelelo Itumeleng Funani — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="Dr Ntsikelelo Itumeleng Funani on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
+          </li>
 
-          <article class="partner-card">
+          <!-- PROF RATAEMANE -->
+          <li class="partner-card">
             <div class="partner-card__body">
               <p class="partner-card__type">Professional advisor</p>
               <h3>Prof. Solomon (Solly) T. Rataemane</h3>
-              <p>Senior psychiatrist, academic leader, and former Chairperson of the Medical and Dental Professions
-                Board
-                of the HPCSA, with significant experience in clinical governance and mental health policy.</p>
+              <p>
+                Senior psychiatrist, academic leader, and former Chairperson of the Medical and Dental Professions Board
+                of the HPCSA, with significant experience in clinical governance and mental health policy.
+              </p>
               <nav class="social-links" aria-label="Professor Solomon Rataemane social links">
-                <a href="#" aria-label="Professor Solomon Rataemane on X — link to be supplied"
-                  title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="Professor Solomon Rataemane on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email Professor Solomon Rataemane — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="Professor Solomon Rataemane on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="Professor Solomon Rataemane on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="Professor Solomon Rataemane on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email Professor Solomon Rataemane — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="Professor Solomon Rataemane on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
+          </li>
 
-          <article class="partner-card">
+          <!-- DR POO -->
+          <li class="partner-card">
             <div class="partner-card__body">
               <p class="partner-card__type">Professional advisor</p>
               <h3>Dr Jacob Poo</h3>
-              <p>Former senior executive at MEDITECH South Africa with experience in digital health systems, enterprise
-                healthcare solutions, and stakeholder engagement.</p>
+              <p>
+                Former senior executive at MEDITECH South Africa with experience in digital health systems, enterprise
+                healthcare solutions, and stakeholder engagement.
+              </p>
               <nav class="social-links" aria-label="Dr Jacob Poo social links">
-                <a href="#" aria-label="Dr Jacob Poo on X — link to be supplied" title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="Dr Jacob Poo on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email Dr Jacob Poo — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="Dr Jacob Poo on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="Dr Jacob Poo on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="Dr Jacob Poo on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email Dr Jacob Poo — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="Dr Jacob Poo on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
+          </li>
 
-          <article class="partner-card">
+          <!-- SAUL MOLOBI -->
+          <li class="partner-card">
             <div class="partner-card__body">
               <p class="partner-card__type">Professional contributor</p>
               <h3>Saul Molobi</h3>
-              <p>Business leader and Chairman &amp; CEO of a pan-African branding and investment group, bringing
-                expertise
-                in market positioning, investment strategy, and international engagement.</p>
+              <p>
+                Business leader and Chairman &amp; CEO of a pan-African branding and investment group, bringing expertise
+                in market positioning, investment strategy, and international engagement.
+              </p>
               <nav class="social-links" aria-label="Saul Molobi social links">
-                <a href="#" aria-label="Saul Molobi on X — link to be supplied" title="X link to be supplied"><svg>
-                    <use href="#icon-x"></use>
-                  </svg></a>
-                <a href="#" aria-label="Saul Molobi on YouTube — link to be supplied"
-                  title="YouTube link to be supplied"><svg>
-                    <use href="#icon-youtube"></use>
-                  </svg></a>
-                <a href="#" aria-label="Email Saul Molobi — address to be supplied"
-                  title="Email address to be supplied"><svg>
-                    <use href="#icon-email"></use>
-                  </svg></a>
-                <a href="#" aria-label="Saul Molobi on Pinterest — link to be supplied"
-                  title="Pinterest link to be supplied"><svg>
-                    <use href="#icon-pinterest"></use>
-                  </svg></a>
+                <a href="#" aria-label="Saul Molobi on X — link to be supplied" title="X link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-x"></use></svg>
+                </a>
+                <a href="#" aria-label="Saul Molobi on YouTube — link to be supplied" title="YouTube link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-youtube"></use></svg>
+                </a>
+                <a href="#" aria-label="Email Saul Molobi — address to be supplied" title="Email address to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-email"></use></svg>
+                </a>
+                <a href="#" aria-label="Saul Molobi on Pinterest — link to be supplied" title="Pinterest link to be supplied">
+                  <svg aria-hidden="true" focusable="false"><use href="#icon-pinterest"></use></svg>
+                </a>
               </nav>
             </div>
-          </article>
-        </div>
-        <p class="belief-statement ">MedicoTech has benefited from the insight, experience, and professional guidance of
-          respected healthcare
+          </li>
+        </ul>
+
+        <p class="belief-statement">
+          MedicoTech has benefited from the insight, experience, and professional guidance of respected healthcare
           and industry leaders whose perspectives have contributed to the development of our thinking, strategy, and
-          product direction.</p>
+          product direction.
+        </p>
       </div>
     </section>
 
-    <section class="section">
+    <!-- COMMITMENT CTA -->
+    <section class="section" aria-labelledby="commitment-heading">
       <div class="container commitment-layout">
         <figure class="image-frame image-frame--commitment">
-          <img src="assets/healthcare-team.jpg" alt="Healthcare professionals working together responsibly"
-            loading="lazy">
+          <img src="assets/healthcare-team.jpg" alt="Healthcare professionals working together responsibly" loading="lazy" width="500" height="350">
         </figure>
         <div class="commitment-content">
           <p class="eyebrow">Our commitment</p>
-          <h2>Collaboration that strengthens healthcare</h2>
-          <p>We value partnerships that strengthen healthcare, support professional excellence, and encourage
+          <h2 id="commitment-heading">Collaboration that strengthens healthcare</h2>
+          <p>
+            We value partnerships that strengthen healthcare, support professional excellence, and encourage
             responsible innovation. By combining healthcare expertise, operational insight, and collaborative thinking,
             MedicoTech continues to build solutions designed to help healthcare professionals and organisations work
-            more efficiently and effectively.</p>
+            more efficiently and effectively.
+          </p>
           <a class="button" href="contact.html">Discuss a Partnership</a>
         </div>
       </div>
     </section>
   </main>
+
   <footer id="site-footer" class="site-footer"></footer>
   <script src="script.js"></script>
 </body>
