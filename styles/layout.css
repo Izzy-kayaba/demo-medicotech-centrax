@@ -549,10 +549,18 @@ SITE HEADER
     .nav ul {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
         gap: 0;
-        margin: 0;
+        width: min(130px,100%);
+        margin: 0 auto;
         padding: 0;
+    }
+
+    .nav ul > li {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
     }
 
     .nav a:not(.button),
@@ -560,10 +568,18 @@ SITE HEADER
         font-size: 1.05rem;      
         letter-spacing: 0.6px;   
         font-weight: 600;
-        width: fit-content;
-        justify-content: space-between;
+        width: 100%;
+        justify-content: flex-start;
         padding: 10px;
+        margin: 0;
+        text-align: left;
     }
+    .nav__item--dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        }
 
     .nav__dropdown {
         position: static;
@@ -571,6 +587,7 @@ SITE HEADER
         border: 0;
         padding: 0 0 0 14px !important;
         box-shadow: none;
+        list-style: none;
     }
 
     .nav .button {
