@@ -24,6 +24,24 @@
     margin-bottom: 0;
 }
 
+.card > a {
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 20px;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card > a:hover {
+    color: var(--primary-dark);
+}
+
+.card > a:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 4px;
+}
+
 .card__meta {
     display: inline-flex;
     width: fit-content;
@@ -42,7 +60,6 @@
 }
 
 .page-hero h1 {
-    max-width: 16ch;
     color: var(--primary);
     font-size: clamp(2.6rem, 6vw, 5rem);
 }

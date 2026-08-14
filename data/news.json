@@ -1,0 +1,77 @@
+{
+  "news": [
+    {
+      "id": "specialist-application-roadmap",
+      "category": "Digital solutions",
+      "date": "13 August 2026",
+      "title": "MedicoTech expands its specialist application roadmap",
+      "excerpt": "New discipline-specific solutions are planned across occupational therapy, social work, industrial psychology, and additional medical specialties.",
+      "image": {
+        "src": "assets/digital-healthcare.png",
+        "alt": "Healthcare professional using a digital solution during a patient consultation"
+      },
+      "content": [
+        { "type": "paragraph", "text": "MedicoTech is expanding its roadmap of specialist-designed digital solutions to support a broader range of healthcare disciplines and professional environments." },
+        { "type": "heading", "text": "Solutions shaped around professional practice" },
+        { "type": "paragraph", "text": "Each planned application is being considered in relation to the real documentation, information management, communication, and accountability requirements of the professionals who will use it." },
+        { "type": "paragraph", "text": "The roadmap includes solutions for occupational therapy, social work, industrial psychology, and additional medical specialties. Availability will be introduced in stages as each solution progresses through design, professional input, and validation." },
+        { "type": "heading", "text": "Professional oversight remains central" },
+        { "type": "paragraph", "text": "Technology is intended to organise and support professional work, not replace professional judgement. Qualified healthcare professionals remain responsible for reviewing, validating, and approving their outputs." }
+      ],
+      "action": {
+        "label": "Product information",
+        "title": "Interested in an upcoming solution?",
+        "description": "Speak to our team about current applications, planned solutions, and organisational requirements.",
+        "text": "Request Product Information",
+        "url": "contact.html"
+      }
+    },
+    {
+      "id": "flexible-specialist-support",
+      "category": "Professional services",
+      "date": "22 July 2026",
+      "title": "Flexible specialist support for healthcare organisations",
+      "excerpt": "Our multidisciplinary service model helps institutions address high volumes, reporting backlogs, and complex operational requirements.",
+      "image": {
+        "src": "assets/healthcare-team.jpg",
+        "alt": "A multidisciplinary healthcare team collaborating in a clinical environment"
+      },
+      "content": [
+        { "type": "paragraph", "text": "Healthcare organisations often need additional professional capacity at times of sustained demand, operational pressure, or complex reporting requirements." },
+        { "type": "heading", "text": "Support designed around operational needs" },
+        { "type": "paragraph", "text": "MedicoTech provides access to multidisciplinary healthcare specialists for defined engagements that complement an organisation’s existing team and governance structures." },
+        { "type": "list", "items": ["Consulting and advisory support", "Patient engagement and specialist assessments", "Professional reporting", "Tailored institutional services"] },
+        { "type": "paragraph", "text": "Each engagement is scoped according to the organisation’s clinical, operational, and reporting needs while preserving professional responsibility and clear oversight." }
+      ],
+      "action": {
+        "label": "Professional services",
+        "title": "Need additional specialist capacity?",
+        "description": "Explore flexible professional support designed around your organisation’s operational and clinical needs.",
+        "text": "Explore Professional Services",
+        "url": "professional-services.html"
+      }
+    },
+    {
+      "id": "professional-oversight",
+      "category": "Responsible technology",
+      "date": "5 June 2026",
+      "title": "Why professional oversight remains essential",
+      "excerpt": "MedicoTech uses technology to support structured workflows while ensuring qualified practitioners remain responsible for final outputs.",
+      "content": [
+        { "type": "paragraph", "text": "Healthcare technology is most valuable when it strengthens professional work without weakening the judgement, ethics, or accountability on which quality care depends." },
+        { "type": "heading", "text": "Technology supports the process" },
+        { "type": "paragraph", "text": "MedicoTech solutions help professionals capture, organise, document, and manage information more efficiently. They provide structure and workflow support while leaving interpretation and decision-making with qualified professionals." },
+        { "type": "heading", "text": "Professionals remain in control" },
+        { "type": "paragraph", "text": "Every supported workflow is designed so that healthcare professionals can review, validate, approve, and sign off on their work. This protects professional integrity and supports consistent, defensible outputs." },
+        { "type": "paragraph", "text": "Responsible technology and professional accountability are not competing priorities. They must work together throughout the healthcare workflow." }
+      ],
+      "action": {
+        "label": "Ethics and compliance",
+        "title": "Learn about our responsible approach",
+        "description": "See how privacy, governance, human oversight, and professional accountability guide MedicoTech.",
+        "text": "Read Our Principles",
+        "url": "ethics.html"
+      }
+    }
+  ]
+}

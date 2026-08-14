@@ -1,4 +1,7 @@
+// The body identifies the current page so the shared navigation can highlight the matching link.
 const page = document.body.dataset.page || "";
+
+// Centralising page paths keeps the injected header and footer links consistent across every page.
 const pages = {
   home: "index.html",
   about: "about.html",
@@ -10,8 +13,11 @@ const pages = {
   howItWorks: "how-it-works.html",
   industries: "industries.html",
 };
+
+// Return the accessibility attribute only for the link that represents the current page.
 const current = (key) => (page === key ? ' aria-current="page"' : "");
 
+// Build the shared header once so individual HTML pages do not duplicate navigation markup.
 document.querySelector("#site-header").innerHTML = `
   <a class="skip-link" href="#main">Skip to main content</a>
   <div class="site-header"><div class="header-inner">
@@ -41,19 +47,21 @@ document.querySelector("#site-header").innerHTML = `
 
 const heroImages = document.querySelectorAll(".home-hero__image");
 
+// Run the carousel only when there is more than one image to rotate through.
 if (heroImages.length > 1) {
   let current = 0;
 
   setInterval(() => {
     heroImages[current].classList.remove("is-active");
 
+    // The remainder returns the index to zero after the final image, creating a continuous loop.
     current = (current + 1) % heroImages.length;
 
     heroImages[current].classList.add("is-active");
   }, 3000);
 }
 
-
+// Build the shared footer from the same page map used by the header.
 document.querySelector("#site-footer").innerHTML = `
     <div class="container footer-main">
       <div class="footer-brand">
@@ -94,9 +102,13 @@ document.querySelector("#site-footer").innerHTML = `
       <p><a href="${pages.ethics}">Terms &amp; Conditions</a> <span aria-hidden="true">|</span> <a href="${pages.ethics}">Privacy Policy</a></p>
     </div>`;
 
+// Keep the copyright year current without requiring an annual HTML update.
 document.querySelector("#year").textContent = new Date().getFullYear();
+
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav");
+
+// Open or close the mobile menu and keep its visible label aligned with its accessibility state.
 menuToggle.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(open));
@@ -106,6 +118,8 @@ menuToggle.addEventListener("click", () => {
   );
   menuToggle.textContent = open ? "×" : "☰";
 });
+
+// Each dropdown manages its own open class and expanded state for mouse, touch, and keyboard users.
 document.querySelectorAll(".nav__dropdown-button").forEach((button) => {
   button.addEventListener("click", () => {
     const item = button.closest(".nav__item--dropdown");
@@ -117,6 +131,8 @@ document.querySelectorAll(".nav__dropdown-button").forEach((button) => {
 const revealItems = document.querySelectorAll(
   "main .section > .container, .image-band__block, .contact-layout",
 );
+
+// Use the browser's visibility observer when available so animations run only as sections enter view.
 if (revealItems.length && "IntersectionObserver" in window) {
   document.body.classList.add("motion-ready");
   revealItems.forEach((item) => item.classList.add("reveal"));
@@ -125,16 +141,20 @@ if (revealItems.length && "IntersectionObserver" in window) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
+          // Stop watching an item after its first reveal to avoid repeating work while scrolling.
           observer.unobserve(entry.target);
         }
       });
     },
+    // Reveal after 12% is visible, with a small bottom offset so the motion does not trigger too early.
     { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
   );
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
 const form = document.querySelector(".form");
+
+// The prototype intercepts submission until a WordPress form handler is connected.
 if (form) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
