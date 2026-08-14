@@ -34,7 +34,7 @@ document.querySelector("#site-header").innerHTML = `
         <li><a href="${pages.news}"${current("news")}>News</a></li>
         <li><a href="${pages.contact}"${current("contact")}>Contact Us</a></li>
       </ul>
-      <a class="button login-button" href="#" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
+      <a class="button login-button" href="h#" target="_blank" rel="noopener noreferrer" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </div>`;
