@@ -15,6 +15,14 @@ const articleElements = {
 };
 
 /**
+ * Update a metadata field that already exists in the article page head.
+ */
+const setMetaContent = (selector, value) => {
+  const element = document.querySelector(selector);
+  if (element && value) element.content = value;
+};
+
+/**
  * Convert a structured content record into an allowed HTML element.
  * Using textContent keeps article data as plain text instead of executing markup from the data file.
  */
@@ -56,8 +64,13 @@ const showArticle = (article) => {
   articleElements.title.textContent = article.title;
   articleElements.excerpt.textContent = article.excerpt;
   document.title = `${article.title} | MedicoTech`;
-  // Match the page description to the selected article for search results and shared links.
-  document.querySelector('meta[name="description"]').content = article.excerpt;
+  // Keep the real article title and excerpt consistent in search and text-based sharing metadata.
+  setMetaContent('meta[name="description"]', article.excerpt);
+  setMetaContent('meta[name="robots"]', "index, follow");
+  setMetaContent('meta[property="og:title"]', article.title);
+  setMetaContent('meta[property="og:description"]', article.excerpt);
+  setMetaContent('meta[name="twitter:title"]', article.title);
+  setMetaContent('meta[name="twitter:description"]', article.excerpt);
 
   // Clear loading content before adding the structured blocks for the selected article.
   articleElements.content.replaceChildren();
@@ -107,6 +120,8 @@ const showArticleError = () => {
   message.textContent = "Return to the News page to browse the latest MedicoTech updates.";
   articleElements.content.append(message);
   document.title = "Article not found | MedicoTech";
+  // Keep broken or unknown article addresses out of search results.
+  setMetaContent('meta[name="robots"]', "noindex, follow");
   articleElements.article.setAttribute("aria-busy", "false");
 };
 

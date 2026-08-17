@@ -52,7 +52,6 @@
     max-width: 20ch;
     color: var(--grey-900);
     font-size: clamp(2.5rem, 6vw, 5rem);
-    overflow-wrap: anywhere;
 }
 
 .article-excerpt {
