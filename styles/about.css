@@ -17,7 +17,11 @@
     max-width: 700px;
 }
 
-
+.page-hero h1 {
+    max-width: 13ch;
+    color: var(--primary, var(--secondary));
+    font-size: clamp(2.6rem, 6vw, 5rem);
+}
 
 .about-media,
 .founder-portrait {
