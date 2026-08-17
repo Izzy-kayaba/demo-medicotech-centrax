@@ -6,7 +6,7 @@
     align-items: flex-end;
     overflow: hidden;
     padding: 3rem 0;
-    background: var(--grey-100);
+    background: var(--primary-dark);
 }
 
 .home-hero__images {

@@ -23,7 +23,7 @@
 
 .card {
     border: 1px solid var(--grey-200);
-    border-top: 4px solid var(--primary);
+    border-top: 4px solid var(--secondary);
     padding: 30px;
     background: var(--white);
     box-shadow: 0 10px 30px rgba(18, 43, 45, .055);
@@ -47,6 +47,10 @@
     background: var(--grey-100);
 }
 
+.page-hero h1 {
+    color: var(--primary);
+    font-size: clamp(2.6rem, 6vw, 5rem);
+}
 
 @media (max-width: 1080px) {
     .card-grid {
@@ -92,7 +96,7 @@
 }
 
 .card:hover {
-    border-color: var(--primary);
+    border-color: var(--secondary);
     box-shadow: 0 18px 38px rgba(15, 94, 99, .13);
     transform: translateY(-6px);
 }

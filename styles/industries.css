@@ -14,7 +14,10 @@
     max-width: 720px;
 }
 
-
+.page-hero h1 {
+    color: var(--primary, var(--secondary));
+    font-size: clamp(2.6rem, 6vw, 5rem);
+}
 
 .image-frame--hero {
     min-height: 560px;
