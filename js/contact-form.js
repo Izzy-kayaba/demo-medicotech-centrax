@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return isValid;
   }
 
-  // --- 3. Form Submission Handling ---
+// --- 3. Web3Forms Submission Handling ---
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -111,20 +111,27 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
+    // Encoded version of your key
+    const defaultKey = "NjE0NDQ4MzUtZjVjYy00NWQwLWE5MzctNjkyMmY2YTJjZWEw";
+    const accessKey = window.WEB3FORMS_ACCESS_KEY || window.atob(defaultKey);
+
     const payload = {
+      access_key: accessKey,
+      subject: `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
+      from_name: `${form.querySelector("#first-name").value.trim()} ${form.querySelector("#last-name").value.trim()}`,
+      name: `${form.querySelector("#first-name").value.trim()} ${form.querySelector("#last-name").value.trim()}`,
+      email: form.querySelector("#email").value.trim(),
       "First Name": form.querySelector("#first-name").value.trim(),
       "Last Name": form.querySelector("#last-name").value.trim(),
-      "_replyto": form.querySelector("#email").value.trim(),
       "Organisation": form.querySelector("#organisation").value.trim() || "N/A",
       "Enquiry Type": form.querySelector("#enquiry").value,
       "Message": form.querySelector("#message").value.trim(),
-      "_cc": "info@tptmedicotech.com",
-      "_subject": `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
+       "_subject": `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
       "_captcha": "true",
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/96e8882e382d433997f393894643b5c6", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const result = await response.json();
 
-      if (response.ok && (result.success === "true" || result.success === true)) {
+      if (response.ok && result.success) {
         showToast("Your enquiry has been sent successfully! Our team will get back to you shortly.", "success");
         form.reset();
       } else {
