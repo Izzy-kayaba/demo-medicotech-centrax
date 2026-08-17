@@ -151,16 +151,3 @@ if (revealItems.length && "IntersectionObserver" in window) {
   );
   revealItems.forEach((item) => revealObserver.observe(item));
 }
-
-const form = document.querySelector(".form");
-
-// The prototype intercepts submission until a WordPress form handler is connected.
-if (form) {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const message = form.querySelector(".form-note");
-    message.textContent =
-      "Thank you. This prototype form is ready to be connected to the WordPress form handler.";
-    message.setAttribute("role", "status");
-  });
-}
