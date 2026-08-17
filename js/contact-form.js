@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "Organisation": form.querySelector("#organisation").value.trim() || "N/A",
       "Enquiry Type": form.querySelector("#enquiry").value,
       "Message": form.querySelector("#message").value.trim(),
-      "_cc": "israelkayaba@gmail.com",
        "_subject": `New MedicoTech Enquiry: ${form.querySelector("#enquiry").value}`,
       "_captcha": "true",
     };
