@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/ethics",
+      "destination": "/ethics.html"
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/how-it-works.html"
+    },
+    {
+      "source": "/industries",
+      "destination": "/industries.html"
+    },
+    {
+      "source": "/news",
+      "destination": "/news.html"
+    },
+    {
+      "source": "/partners",
+      "destination": "/partners.html"
+    },
+    {
+      "source": "/professional-services",
+      "destination": "/professional-services.html"
+    }
+  ]
+}
