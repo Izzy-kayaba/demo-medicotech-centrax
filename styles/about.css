@@ -80,7 +80,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    margin: 22px 0 28px;
+    margin: 1rem 0 1.25rem;
 }
 
 .mission-grid div {
@@ -89,9 +89,10 @@
     align-items: center;
     border-left: 4px solid var(--primary, var(--secondary));
     padding: 16px 18px;
+    border-radius: 1rem;
     color: var(--grey-900);
     background: var(--white);
-    box-shadow: 0 8px 22px rgba(18, 43, 45, .055);
+    box-shadow: 0 8px 1rem rgba(18, 43, 45, .055);
     font-weight: 600;
     transition: transform .25s ease, box-shadow .25s ease;
 }
@@ -158,8 +159,9 @@
     border: 1px solid var(--grey-200);
     border-top: 4px solid var(--primary, var(--secondary));
     padding: 24px;
+    border-radius: 1rem;
     background: var(--white);
-    box-shadow: 0 8px 22px rgba(18, 43, 45, .05);
+    box-shadow: 0 8px 1rem rgba(18, 43, 45, .05);
     transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
@@ -171,7 +173,7 @@
 
 .approach-grid span {
     display: block;
-    margin-bottom: 22px;
+    margin-bottom: 1rem;
     color: var(--primary, var(--secondary));
     font-size: 1.45rem;
     font-weight: 700;

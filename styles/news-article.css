@@ -37,7 +37,7 @@
 .article-meta {
     display: inline-flex;
     width: fit-content;
-    margin-bottom: 22px;
+    margin-bottom: 1rem;
     border-radius: 999px;
     padding: 7px 12px;
     color: var(--white);
@@ -128,7 +128,7 @@
 .article-aside__panel {
     border: 1px solid var(--grey-200);
     border-left: 4px solid var(--primary);
-    padding: 28px;
+    padding: 1.25rem;
     background: var(--white);
     box-shadow: 0 12px 32px rgba(18, 43, 45, .07);
 }

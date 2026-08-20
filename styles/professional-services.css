@@ -18,13 +18,14 @@
 .card-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    gap: 1rem;
 }
 
 .card {
     border: 1px solid var(--grey-200);
-    border-top: 4px solid var(--secondary);
+    border-top: 4px solid var(--primary, var(--secondary));
     padding: 30px;
+    border-radius: 1rem;
     background: var(--white);
     box-shadow: 0 10px 30px rgba(18, 43, 45, .055);
 }
