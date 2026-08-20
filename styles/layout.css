@@ -495,21 +495,28 @@ SITE HEADER
     text-align: center;
 }
 
+.footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+}
+
 /* --- Footer Bottom (Desktop/Tablet Layout) --- */
 @media (min-width: 768px) {
     .footer-bottom {
-        grid-template-columns: 1.2fr 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 24px;
         align-items: center;
         text-align: left;
     }
 
     .footer-bottom p:nth-child(2) {
-        text-align: center;
+        text-align: right;
     }
 
-    .footer-bottom p:last-child {
-        text-align: right;
+    .footer-legal-links {
+        justify-content: flex-end;
     }
 }
 
