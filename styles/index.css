@@ -279,9 +279,9 @@
 
 .workflow-step__icon {
   display: grid;
-  width: 56px;
-  height: 56px;
   flex-shrink: 0;
+  width: 52px;
+  height: 52px;
   place-items: center;
   border-radius: 50%;
   color: var(--white);
@@ -290,30 +290,18 @@
     var(--secondary, var(--primary)),
     var(--green-deep)
   );
-  font-size: 1.25rem;
-  line-height: 1;
-  box-shadow: 0 8px 18px rgba(15, 94, 99, 0.18);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(15, 94, 99, 0.14);
+}
+
+.workflow-step__icon svg {
+  display: block;
+  width: 23px;
+  height: 23px;
 }
 
 .workflow-step:hover .workflow-step__icon {
   transform: scale(1.08);
   box-shadow: 0 12px 24px rgba(15, 94, 99, 0.25);
-}
-
-/*
- * Works with most icon libraries.
- *
- * If your icons use SVGs, this makes sure they remain
- * consistent in size.
- */
-.workflow-step__icon svg,
-.workflow-step__icon i {
-  width: 24px;
-  height: 24px;
-  font-size: 24px;
 }
 
 .workflow-step__content {
@@ -413,7 +401,6 @@
   display: grid;
   width: 48px;
   height: 48px;
-  margin-bottom: 1rem;
   place-items: center;
   border-radius: 50%;
   color: var(--white);
@@ -422,12 +409,13 @@
     var(--secondary, var(--primary)),
     var(--green-deep)
   );
-  font-size: 1.15rem;
-  line-height: 1;
-  box-shadow: 0 8px 18px rgba(15, 94, 99, 0.18);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  box-shadow: 0 8px 20px rgba(15, 94, 99, 0.16);
+}
+
+.expertise-card__icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .expertise-card:hover .expertise-card__icon {

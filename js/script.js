@@ -12,6 +12,9 @@ const pages = {
   ethics: "ethics.html",
   howItWorks: "how-it-works.html",
   industries: "industries.html",
+  privacy: "privacy-policy.html",
+  terms: "terms-of-use.html",
+  disclaimer: "disclaimer.html",
 };
 
 // Return the accessibility attribute only for the link that represents the current page.
@@ -40,7 +43,7 @@ document.querySelector("#site-header").innerHTML = `
         <li><a href="${pages.news}"${current("news")}>News</a></li>
         <li><a href="${pages.contact}"${current("contact")}>Contact Us</a></li>
       </ul>
-      <a class="button login-button" href="h#" target="_blank" rel="noopener noreferrer" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
+      <a class="button login-button" href="#" aria-label="Login to MedicoTech">Login <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </div>`;
@@ -97,9 +100,16 @@ document.querySelector("#site-footer").innerHTML = `
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>Copyright &copy; <span id="year"></span> TPTMedico_Tech. All Rights Reserved.</p>
-      <p>Developed By: Centrax Digital</p>
-      <p><a href="${pages.ethics}">Terms &amp; Conditions</a> <span aria-hidden="true">|</span> <a href="${pages.ethics}">Privacy Policy</a></p>
+      <p>&copy; <span id="year"></span> MedicoTech. Developed by <a href="https://www.centraxdigital.com/za" target="_blank" rel="noopener noreferrer">
+    Centrax Digital
+  </a>.</p>
+      <p class="footer-legal-links">
+        <a href="${pages.privacy}">Privacy Policy</a>
+        <span aria-hidden="true">|</span>
+        <a href="${pages.terms}">Terms of Use</a>
+        <span aria-hidden="true">|</span>
+        <a href="${pages.disclaimer}">Disclaimer</a>
+      </p>
     </div>`;
 
 // Keep the copyright year current without requiring an annual HTML update.
