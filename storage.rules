@@ -6,7 +6,7 @@ service firebase.storage {
     }
     match /articles/{articleId}/{slot}/{version} {
       allow read: if slot in ['image1', 'image2'];
-      allow create: if editor()
+      allow create: if editor() && resource == null
         && slot in ['image1', 'image2']
         && version.matches('[a-zA-Z0-9-]+')
         && request.resource.size > 0

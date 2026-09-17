@@ -3,6 +3,7 @@ import {
   formatDate,
   summary
 } from './news-data.js';
+import { appendImages } from './article-images.js';
 
 const grid = document.querySelector('#news-list');
 const status = document.querySelector('#news-status');
@@ -33,14 +34,18 @@ try {
     link.href = `news-article.html?id=${encodeURIComponent(article.id)}`;
     link.textContent = 'Read article →';
 
+    const images = document.createElement('div');
+    images.className = 'news-images';
     card.append(
       meta,
       title,
       excerpt,
+      images,
       link
     );
 
     grid.append(card);
+    void appendImages(images, article);
   }
 
   status.textContent = articles.length

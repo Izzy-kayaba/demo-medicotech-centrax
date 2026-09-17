@@ -39,7 +39,7 @@ async function login(email) {
 }
 const image = {
   name: 'test.png', mimeType: 'image/png',
-  buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aN1cAAAAASUVORK5CYII=', 'base64'),
+  buffer: await page.screenshot({ clip: { x: 0, y: 0, width: 2, height: 2 } }),
 };
 try {
   await page.goto(`${base}/admin`);
@@ -68,6 +68,7 @@ try {
   await page.locator('#image1').setInputFiles(image);
   await page.getByRole('button', { name: 'Save / Publish' }).click();
   await page.locator('#editor').waitFor({ state: 'hidden' });
+  assert.ok((await articleRef.get()).data().image1, await page.locator('#message').textContent());
   await publicPage.reload();
   await publicPage.locator('#article-image img').waitFor();
   assert.equal(await publicPage.locator('#article-image img').count(), 1);
@@ -78,6 +79,39 @@ try {
   const firstVersion = (await articleRef.get()).data().image1;
   await publicPage.reload();
   await publicPage.waitForFunction(() => document.querySelectorAll('#article-image img').length === 2);
+  // Reject only image 1 uploads: text and image 2 must still save.
+  const beforePartial = (await articleRef.get()).data();
+  await context.route('http://127.0.0.1:9199/**', route => {
+    if (route.request().method() === 'POST' && decodeURIComponent(route.request().url()).includes('/image1/')) {
+      return route.fulfill({ status: 403, contentType: 'application/json', body: JSON.stringify({ error: { code: 403, message: 'Permission denied for simulated upload failure' } }) });
+    }
+    return route.continue();
+  });
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.locator('#title').fill('Partial image failure');
+  await page.locator('#image1').setInputFiles(image);
+  await page.locator('#image2').setInputFiles(image);
+  await page.getByRole('button', { name: 'Save / Publish' }).click();
+  await page.locator('#editor').waitFor({ state: 'hidden' });
+  await page.getByText('Image 1 was not uploaded.', { exact: false }).waitFor();
+  const afterPartial = (await articleRef.get()).data();
+  assert.equal(afterPartial.title, 'Partial image failure');
+  assert.equal(afterPartial.image1, beforePartial.image1);
+  assert.notEqual(afterPartial.image2, beforePartial.image2);
+  await context.unroute('http://127.0.0.1:9199/**');
+  // A valid download URL can still fail when the browser requests its pixels.
+  await context.route('http://127.0.0.1:9199/**', route => {
+    if (new URL(route.request().url()).searchParams.get('alt') === 'media') return route.fulfill({ status: 404, body: '' });
+    return route.continue();
+  });
+  await publicPage.reload();
+  await publicPage.getByRole('heading', { name: 'Partial image failure' }).waitFor();
+  await publicPage.getByRole('heading', { name: 'A heading', exact: true }).waitFor();
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.locator('#preview1').getByText('Image preview unavailable.', { exact: false }).waitFor();
+  assert.equal(await publicPage.locator('#article-image').isVisible(), false);
+  await page.getByRole('button', { name: 'Cancel', exact: true }).click();
+  await context.unroute('http://127.0.0.1:9199/**');
   await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page.locator('#image1').setInputFiles(image);
   await page.locator('#remove2').check();
@@ -87,6 +121,7 @@ try {
   const updated = (await articleRef.get()).data();
   assert.notEqual(updated.image1, firstVersion);
   assert.equal(updated.image2, null);
+  for (let attempt = 0; attempt < 50 && (await getStorage().bucket().file(firstVersion).exists())[0]; attempt++) await new Promise(resolve => setTimeout(resolve, 100));
   assert.equal((await getStorage().bucket().file(firstVersion).exists())[0], false);
   await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page.locator('#remove1').check();
@@ -104,8 +139,16 @@ try {
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await page.reload();
   await page.getByRole('heading', { name: 'Changed elsewhere' }).waitFor();
+  await page.screenshot({ path: 'test-artifacts/admin-desktop.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.screenshot({ path: 'test-artifacts/admin-mobile.png', fullPage: true });
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.screenshot({ path: 'test-artifacts/editor-mobile.png', fullPage: true });
+  await page.setViewportSize({ width: 1366, height: 900 });
+  await page.screenshot({ path: 'test-artifacts/editor-desktop.png', fullPage: true });
+  await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   page.once('dialog', dialog => dialog.dismiss());
   await page.getByRole('button', { name: 'Delete', exact: true }).click();
   assert.equal((await articleRef.get()).exists, true);
@@ -115,10 +158,39 @@ try {
   assert.equal((await articleRef.get()).exists, false);
   await page.getByRole('button', { name: 'Log out', exact: true }).click();
   await page.waitForURL('**/admin/login');
+  await page.screenshot({ path: 'test-artifacts/login-desktop.png', fullPage: true });
   await page.goto(`${base}/admin/dashboard`);
   await page.waitForURL('**/admin/login');
   assert.deepEqual(errors, []);
-  console.log('PASS: redirects, account permissions, create/read/update/delete, 0/1/2 images, replacement/removal, cleanup, safe text, stale edits, cancel, mobile width, logout.');
+  // No bucket configuration: Authentication and article writes still work.
+  await context.route('**/js/firebase-config.js', route => route.fulfill({ contentType: 'text/javascript', body: `export const firebaseConfig = { apiKey: 'demo-only', projectId: '${projectId}', authDomain: '${projectId}.firebaseapp.com', appId: 'demo-only' }; export const useEmulators = true;` }));
+  await page.reload();
+  await login('editor@example.test');
+  await page.waitForURL('**/admin/dashboard');
+  await page.getByRole('button', { name: 'Add New Article', exact: true }).click();
+  await page.locator('#title').fill('No Storage configured');
+  await page.locator('#content').fill('This article must publish even without image storage.');
+  await page.locator('#image1').setInputFiles(image);
+  await page.getByRole('button', { name: 'Save / Publish' }).click();
+  await page.locator('#editor').waitFor({ state: 'hidden' });
+  await page.getByText('Image 1 was not uploaded.', { exact: false }).waitFor();
+  const noStorage = await db.collection('articles').where('title', '==', 'No Storage configured').get();
+  assert.equal(noStorage.size, 1);
+  assert.equal(noStorage.docs[0].data().image1, null);
+  await publicPage.goto(`${base}/news.html`);
+  await publicPage.getByRole('heading', { name: 'No Storage configured' }).waitFor();
+  // Invalid optional files are reported, but do not discard the article text.
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.locator('#title').fill('Invalid image safely skipped');
+  await page.locator('#image1').setInputFiles({ name: 'invalid.svg', mimeType: 'image/svg+xml', buffer: Buffer.from('<svg></svg>') });
+  await page.getByRole('button', { name: 'Save / Publish' }).click();
+  await page.locator('#editor').waitFor({ state: 'hidden' });
+  assert.equal((await noStorage.docs[0].ref.get()).data().title, 'Invalid image safely skipped');
+  console.log('PASS: redirects, account permissions, CRUD, 0/1/2 images, replacements, removals, cleanup, partial upload failure, broken image responses, missing Storage, invalid files, safe text, stale edits, cancel, responsive screens, logout.');
+} catch (error) {
+  console.error('Browser message:', await page.locator('#message').textContent().catch(() => 'No message'));
+  await page.screenshot({ path: 'test-artifacts/failure.png', fullPage: true }).catch(() => {});
+  throw error;
 } finally {
   await browser.close();
 }

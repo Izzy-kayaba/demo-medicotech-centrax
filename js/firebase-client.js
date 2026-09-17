@@ -21,6 +21,6 @@ export function getFirebase() {
     connectFirestoreEmulator(db, '127.0.0.1', 8080);
   }
 
-  services = { auth, db };
+  services = { app, auth, db };
   return services;
 }

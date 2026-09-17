@@ -4,6 +4,7 @@
   summary,
   renderContent
 } from './news-data.js';
+import { appendImages } from './article-images.js';
 
 const $ = id => document.getElementById(id);
 
@@ -40,8 +41,8 @@ try {
       article.content
     );
 
-    // Images are currently disabled because Firebase Storage
-    // is not configured.
+    // Images load independently; their failure never hides the article text.
+    void appendImages($('article-image'), article);
 
     if (
       article.action &&

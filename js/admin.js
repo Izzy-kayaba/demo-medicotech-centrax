@@ -14,16 +14,9 @@ import {
   Timestamp
 } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 
-// Firebase Storage is currently disabled.
-// import {
-//   ref,
-//   uploadBytes,
-//   deleteObject,
-//   getDownloadURL
-// } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js';
-
 import { getFirebase } from './firebase-client.js';
 import { listArticles, formatDate } from './news-data.js';
+import { appendImages, clearImages, validateImage, saveOptionalImages, cleanupImages } from './article-images.js';
 
 const $ = id => document.getElementById(id);
 const page = document.body.dataset.adminPage;
@@ -32,9 +25,12 @@ let services;
 let editing = null;
 let busy = false;
 let dirty = false;
+const previewUrls = new Map();
 
-function message(text) {
+function message(text, tone = 'info') {
   $('message').textContent = text;
+  $('message').dataset.tone = tone;
+  if (tone !== 'info') $('message').scrollIntoView({ block: 'nearest' });
 }
 
 function errorMessage(error) {
@@ -59,6 +55,7 @@ function setBusy(value) {
     });
 
   $('editor-fields').disabled = value;
+  $('save-label').textContent = value ? 'Saving...' : 'Save / Publish';
 }
 
 function dateValue(date = new Date()) {
@@ -76,6 +73,7 @@ function openEditor(article = null) {
   dirty = false;
 
   $('article-form').reset();
+  resetImagePreviews();
 
   $('editor-heading').textContent = article
     ? 'Edit article'
@@ -91,13 +89,33 @@ function openEditor(article = null) {
     : dateValue();
 
   $('editor').hidden = false;
+  $('article-library').hidden = true;
+  $('add-article').hidden = true;
+  $('workspace-label').textContent = article ? 'Edit article' : 'New article';
+  for (const slot of [1, 2]) {
+    $('remove' + slot).disabled = !article?.['image' + slot];
+    if (article?.['image' + slot]) {
+      void appendImages($('preview' + slot), { title: article.title, image1: article['image' + slot] }, { showUnavailable: true });
+    }
+    $('image-status' + slot).textContent = article?.['image' + slot] ? 'Current image' : 'No image selected';
+  }
   $('title').focus();
 }
 
 function closeEditor() {
+  resetImagePreviews();
   editing = null;
   dirty = false;
   $('editor').hidden = true;
+  $('article-library').hidden = false;
+  $('add-article').hidden = false;
+  $('workspace-label').textContent = 'News articles';
+}
+
+function resetImagePreviews() {
+  for (const url of previewUrls.values()) URL.revokeObjectURL(url);
+  previewUrls.clear();
+  for (const slot of [1, 2]) clearImages($('preview' + slot));
 }
 
 async function refresh() {
@@ -117,9 +135,15 @@ async function refresh() {
     const meta = document.createElement('p');
     meta.textContent = `Published · ${formatDate(article.publishedAt)}`;
 
-    // Images are currently disabled.
-    // const images = document.createElement('div');
-    // images.className = 'admin-thumbnails';
+    const images = document.createElement('div');
+    images.className = 'admin-thumbnails';
+    const details = document.createElement('div');
+    details.className = 'admin-article-details';
+    const imageCount = [article.image1, article.image2].filter(Boolean).length;
+    const imageNote = document.createElement('span');
+    imageNote.className = 'admin-image-count';
+    imageNote.textContent = imageCount ? `${imageCount} image${imageCount === 1 ? '' : 's'}` : 'Text only';
+    details.append(title, meta, imageNote, images);
 
     const actions = document.createElement('div');
     actions.className = 'button-row';
@@ -127,29 +151,28 @@ async function refresh() {
     const edit = document.createElement('button');
     edit.type = 'button';
     edit.textContent = 'Edit';
+    edit.className = 'admin-secondary';
     edit.onclick = () => openEditor(article);
 
     const remove = document.createElement('button');
     remove.type = 'button';
     remove.textContent = 'Delete';
+    remove.className = 'admin-delete';
     remove.onclick = () => deleteArticle(article);
 
     actions.append(edit, remove);
 
-    // Images are currently disabled.
-    // row.append(title, meta, images, actions);
-
-    row.append(title, meta, actions);
+    row.append(details, actions);
 
     $('articles').append(row);
 
-    // Images are currently disabled.
-    // void appendImages(images, article);
+    void appendImages(images, article);
   }
 
   $('list-status').textContent = articles.length
     ? ''
     : 'No articles yet. Select Add New Article to get started.';
+  $('article-count').textContent = `${articles.length} published`;
 }
 
 async function refreshAfterWrite() {
@@ -193,6 +216,8 @@ async function deleteArticle(article) {
     closeEditor();
 
     message('Article deleted successfully.');
+    // Image cleanup is independent of the completed deletion.
+    void cleanupImages([article.image1, article.image2]);
 
     await refreshAfterWrite();
   } catch (error) {
@@ -209,6 +234,8 @@ async function save(event) {
 
   setBusy(true);
   message('Saving article…');
+  let imageResult;
+  let committed = false;
 
   try {
     const title = $('title').value.trim();
@@ -238,9 +265,8 @@ async function save(event) {
       status: 'published',
       publishedAt: Timestamp.fromDate(date),
 
-      // Images are currently disabled.
-      image1: null,
-      image2: null,
+      image1: editing?.image1 || null,
+      image2: editing?.image2 || null,
 
       createdAt: editing?.createdAt || serverTimestamp(),
       updatedAt: serverTimestamp()
@@ -259,6 +285,13 @@ async function save(event) {
     ) {
       data.excerpt = editing.excerpt;
     }
+
+    const selections = [1, 2].map(slot => ({
+      file: $('image' + slot).files[0], remove: $('remove' + slot).checked,
+    }));
+    if (selections.some(selection => selection.file)) message('Saving article and trying the optional images. Your text can still be saved if an image fails.');
+    imageResult = await saveOptionalImages(reference.id, editing, selections);
+    Object.assign(data, imageResult.images);
 
     await runTransaction(services.db, async transaction => {
       const current = await transaction.get(reference);
@@ -283,16 +316,18 @@ async function save(event) {
 
       transaction.set(reference, data);
     });
-
+    committed = true;
+    const oldPaths = [editing?.image1, editing?.image2].filter(path => path && path !== data.image1 && path !== data.image2);
     closeEditor();
-
-    message(
-      'Article published successfully. It is now available on the News page.'
-    );
+    const warning = imageResult.warnings.join(' ');
+    message('Article published successfully. ' + (warning || 'It is now available on the News page.'), warning ? 'warning' : 'success');
+    // No waiting for image deletion before showing the saved article.
+    void cleanupImages([...oldPaths, ...imageResult.abandoned]);
 
     await refreshAfterWrite();
   } catch (error) {
-    message(errorMessage(error));
+    if (!committed && imageResult?.uploaded.length) void cleanupImages(imageResult.uploaded);
+    message(errorMessage(error), 'error');
   } finally {
     setBusy(false);
   }
@@ -324,12 +359,43 @@ function wireDashboard() {
     dirty = true;
   };
 
-  // Image event handlers are intentionally disabled.
-  //
-  // for (const slot of [1, 2]) {
-  //   $(`image${slot}`).onchange = ...
-  //   $(`remove${slot}`).onchange = ...
-  // }
+  for (const slot of [1, 2]) {
+    $('image' + slot).onchange = () => {
+      dirty = true;
+      const file = $('image' + slot).files[0];
+      if (!file) return;
+      clearImages($('preview' + slot));
+      if (previewUrls.has(slot)) URL.revokeObjectURL(previewUrls.get(slot));
+      try {
+        validateImage(file);
+        const url = URL.createObjectURL(file);
+        previewUrls.set(slot, url);
+        const image = document.createElement('img');
+        image.alt = `Selected image ${slot}`;
+        image.onload = () => { if (previewUrls.get(slot) === url) $('preview' + slot).hidden = false; };
+        image.onerror = () => {
+          if (previewUrls.get(slot) === url) {
+            clearImages($('preview' + slot));
+            $('image-status' + slot).textContent = 'This image cannot be read. Your article can still be saved.';
+          }
+        };
+        image.src = url;
+        $('preview' + slot).append(image);
+        $('remove' + slot).checked = false;
+        $('image-status' + slot).textContent = `${file.name} — ready to upload when you save`;
+      } catch (error) {
+        $('image-status' + slot).textContent = error.message + ' Your article can still be saved; this image will be skipped.';
+      }
+    };
+    $('remove' + slot).onchange = () => {
+      dirty = true;
+      $('image' + slot).value = '';
+      clearImages($('preview' + slot));
+      const existing = editing?.['image' + slot];
+      $('image-status' + slot).textContent = $('remove' + slot).checked ? 'Image will be removed when you save.' : (existing ? 'Current image' : 'No image selected');
+      if (!$('remove' + slot).checked && existing) void appendImages($('preview' + slot), { title: editing.title, image1: existing }, { showUnavailable: true });
+    };
+  }
 
   window.addEventListener('beforeunload', event => {
     if (dirty || busy) {
