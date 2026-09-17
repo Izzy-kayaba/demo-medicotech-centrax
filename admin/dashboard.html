@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Manage News | MedicoTech</title>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+
+<body data-admin-page="dashboard">
+  <main class="admin-shell">
+    <p id="message" role="status" aria-live="polite">Checking your access…</p>
+    <section id="dashboard" hidden>
+      <div class="admin-toolbar">
+        <div>
+          <p class="eyebrow">MedicoTech</p>
+          <h1>Manage News</h1>
+          <p id="account"></p>
+        </div>
+        <div class="button-row"><a href="/news.html">View News</a><button id="logout" type="button">Log out</button>
+        </div>
+      </div>
+      <p>Create and publish news articles. Other website content cannot be edited here.</p>
+      <button id="add-article" class="button" type="button">Add New Article</button>
+      <section id="editor" class="admin-panel" hidden aria-labelledby="editor-heading">
+        <h2 id="editor-heading">New article</h2>
+        <form id="article-form">
+          <fieldset id="editor-fields">
+            <label for="title">Title</label><input id="title" maxlength="200" required>
+            <label for="content">Article content</label><textarea id="content" rows="14" maxlength="100000" required
+              aria-describedby="content-help"></textarea>
+            <p id="content-help">Separate paragraphs with a blank line. Optional: start a heading with ## or a list item
+              with - . HTML is shown as text.</p>
+            <label for="publishedAt">Publication date</label><input id="publishedAt" type="date" required
+              aria-describedby="date-help">
+            <p id="date-help">Saving publishes immediately. Choose today or a past date.</p>
+            <!-- <h3>Article images (optional)</h3><p>Maximum 2 images. JPEG, PNG or WebP, up to 5 MB each. Replacements and removals take effect after saving.</p>
+            <div class="admin-image-slots">
+              <div><label for="image1">Image 1</label><div id="preview1" class="admin-preview"></div><input id="image1" type="file" accept="image/jpeg,image/png,image/webp"><label class="checkbox-label"><input id="remove1" type="checkbox"> Remove current image 1</label></div>
+              <div><label for="image2">Image 2</label><div id="preview2" class="admin-preview"></div><input id="image2" type="file" accept="image/jpeg,image/png,image/webp"><label class="checkbox-label"><input id="remove2" type="checkbox"> Remove current image 2</label></div>
+            </div> -->
+            <p class="content-help">Images are currently managed separately. News articles can be published without
+              images.</p>
+            <div class="button-row"><button class="button" type="submit">Save / Publish</button><button id="cancel"
+                type="button">Cancel</button></div>
+          </fieldset>
+        </form>
+      </section>
+      <h2>Published articles</h2>
+      <p id="list-status" role="status"></p>
+      <div id="articles"></div>
+    </section><noscript>Enable JavaScript to manage News.</noscript>
+  </main>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+
+</html>

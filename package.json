@@ -1,0 +1,18 @@
+{
+  "name": "medicotech-news-admin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:hosting": "node scripts/prepare-hosting.mjs",
+    "test": "firebase emulators:exec --only firestore,storage --project demo-medicotech-news \"node --test tests/news-rules.test.mjs\"",
+    "emulators": "npm run prepare:hosting && firebase emulators:start --project demo-medicotech-news",
+    "import:news": "node scripts/import-news.mjs",
+    "admin:grant": "node scripts/news-admin.mjs"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0",
+    "firebase": "12.19.0",
+    "firebase-admin": "^13.0.0",
+    "firebase-tools": "^15.0.0"
+  }
+}

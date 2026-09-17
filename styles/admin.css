@@ -1,0 +1,23 @@
+[hidden] { display: none !important; }
+body { background: var(--grey-100); }
+.admin-shell { width: min(100% - 32px, 1080px); margin: 48px auto; }
+.admin-login { max-width: 520px; }
+.admin-shell h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--primary); }
+.admin-shell h2 { margin-top: 32px; }
+.admin-shell label { display: block; font-weight: 600; margin: 18px 0 6px; }
+.admin-shell input:not([type=checkbox]), .admin-shell textarea { width: 100%; padding: 12px; font: inherit; border: 1px solid var(--grey-300); border-radius: 6px; background: var(--white); color: var(--grey-900); }
+.admin-shell textarea { resize: vertical; }
+.admin-shell button { cursor: pointer; font: inherit; padding: 10px 18px; border-radius: 6px; }
+.admin-shell button:disabled { cursor: wait; opacity: .65; }
+.admin-shell :focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
+.admin-shell fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.admin-shell .button-row { margin-top: 20px; gap: 12px; }
+.admin-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.admin-panel, .admin-article { background: var(--white); padding: 24px; margin-top: 24px; border: 1px solid var(--grey-200); border-radius: 12px; }
+.admin-article h3 { overflow-wrap: anywhere; }
+.admin-image-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.admin-preview img, .admin-thumbnails img { width: 160px; height: 110px; object-fit: cover; border-radius: 6px; margin: 8px; }
+.admin-shell .checkbox-label { font-weight: 400; }
+#message:not(:empty) { padding: 16px; border-left: 4px solid var(--primary); background: var(--white); }
+#login-form button { margin-top: 24px; }
+@media (max-width: 640px) { .admin-image-slots { grid-template-columns: 1fr; } .admin-panel { padding: 16px; } }

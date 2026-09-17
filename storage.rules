@@ -1,0 +1,20 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function editor() {
+      return request.auth != null && request.auth.token.newsAdmin == true;
+    }
+    match /articles/{articleId}/{slot}/{version} {
+      allow read: if slot in ['image1', 'image2'];
+      allow create: if editor()
+        && slot in ['image1', 'image2']
+        && version.matches('[a-zA-Z0-9-]+')
+        && request.resource.size > 0
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType in ['image/jpeg', 'image/png', 'image/webp'];
+      // Unique versions protect published images when a save fails.
+      allow delete: if editor() && slot in ['image1', 'image2'];
+    }
+    match /{path=**} { allow read, write: if false; }
+  }
+}

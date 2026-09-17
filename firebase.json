@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "public": "public",
+    "predeploy": ["npm run prepare:hosting"],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "/admin", "destination": "/admin/index.html" },
+      { "source": "/admin/login", "destination": "/admin/login.html" },
+      { "source": "/admin/dashboard", "destination": "/admin/dashboard.html" },
+      { "source": "/contact", "destination": "/contact.html" },
+      { "source": "/about", "destination": "/about.html" },
+      { "source": "/ethics", "destination": "/ethics.html" },
+      { "source": "/how-it-works", "destination": "/how-it-works.html" },
+      { "source": "/industries", "destination": "/industries.html" },
+      { "source": "/news", "destination": "/news.html" },
+      { "source": "/partners", "destination": "/partners.html" },
+      { "source": "/professional-services", "destination": "/professional-services.html" }
+    ]
+  },
+  "firestore": { "rules": "firestore.rules", "indexes": "firestore.indexes.json" },
+  "storage": { "rules": "storage.rules" },
+  "emulators": {
+    "auth": { "port": 9099 }, "firestore": { "port": 8080 },
+    "storage": { "port": 9199 }, "hosting": { "port": 5000 },
+    "ui": { "enabled": true }, "singleProjectMode": true
+  }
+}

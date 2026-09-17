@@ -112,6 +112,8 @@
     margin-bottom: 24px;
 }
 
+.article-content p { white-space: pre-line; }
+
 .article-content ul {
     padding-left: 1.4rem;
 }

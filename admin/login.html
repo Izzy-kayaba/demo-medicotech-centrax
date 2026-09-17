@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>News Admin Login | MedicoTech</title>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+
+<body data-admin-page="login">
+  <main class="admin-shell admin-login">
+    <a href="/news.html">← Back to News</a>
+    <p class="eyebrow">MedicoTech</p>
+    <h1>News editor login</h1>
+    <p>Sign in with your approved account to manage news articles.</p>
+    <p id="message" role="status" aria-live="polite">Checking your access…</p>
+    <form id="login-form" hidden>
+      <label for="email">Email address</label><input id="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label><input id="password" type="password" autocomplete="current-password"
+        required>
+      <button class="button" type="submit">Log in</button>
+    </form><noscript>Enable JavaScript to sign in.</noscript>
+  </main>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+
+</html>
