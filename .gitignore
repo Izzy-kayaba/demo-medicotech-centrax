@@ -1,0 +1,9 @@
+node_modules/
+test-artifacts/
+public/
+.firebase/
+*-debug.log
+*-debug.*.log
+.env*
+*service-account*.json
+*serviceAccount*.json

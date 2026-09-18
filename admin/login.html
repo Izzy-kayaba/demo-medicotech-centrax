@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>News Admin Login | MedicoTech</title>
+  <link rel="icon" href="/assets/medicotech.webp">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+
+<body data-admin-page="login">
+  <main class="admin-shell admin-login">
+    <a class="admin-login-brand" href="/news.html"><img src="/assets/medicotech-logo.png" alt="MedicoTech"></a>
+    <div class="admin-login-card">
+      <p class="admin-section-label">CONTENT WORKSPACE</p>
+      <h1>Welcome back</h1>
+      <p class="admin-intro">Sign in to manage your News articles.</p>
+      <p id="message" role="status" aria-live="polite">Checking your access...</p>
+      <form id="login-form" hidden>
+        <label for="email">Email address</label><input id="email" type="email" autocomplete="username" required
+          placeholder="you@company.co.za">
+        <label for="password">Password</label><input id="password" type="password" autocomplete="current-password"
+          required>
+        <button class="button" type="submit">Log in</button>
+      </form>
+      <p class="admin-login-help">Need access or help signing in?<br>Contact your website support person.</p>
+      <noscript>Enable JavaScript to sign in.</noscript>
+    </div>
+    <a class="admin-back-link" href="/news.html">&larr; Back to the website</a>
+  </main>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function editor() {
+      return request.auth != null && request.auth.token.newsAdmin == true;
+    }
+
+    function image(path, id, slot) {
+      return path == null || (
+        path is string &&
+        path.matches('articles/' + id + '/' + slot + '/[a-zA-Z0-9-]+')
+      );
+    }
+
+    function valid(id) {
+      let d = request.resource.data;
+
+      return id.matches('[a-zA-Z0-9-]+')
+        && d.keys().hasAll([
+          'title',
+          'content',
+          'publishedAt',
+          'status',
+          'image1',
+          'image2',
+          'createdAt',
+          'updatedAt'
+        ])
+        && d.keys().hasOnly([
+          'title',
+          'content',
+          'publishedAt',
+          'status',
+          'image1',
+          'image2',
+          'createdAt',
+          'updatedAt',
+          'category',
+          'excerpt',
+          'action'
+        ])
+        && d.title is string
+        && d.title.matches('.*[^\\s].*')
+        && d.title.size() <= 200
+        && d.content is string
+        && d.content.matches('[\\s\\S]*[^\\s][\\s\\S]*')
+        && d.content.size() <= 100000
+        && d.status == 'published'
+        && d.publishedAt is timestamp
+        && d.publishedAt <= request.time
+        && d.createdAt is timestamp
+        && d.updatedAt == request.time
+        && image(d.image1, id, 'image1')
+        && image(d.image2, id, 'image2')
+        && (
+          !('category' in d) ||
+          (d.category is string && d.category.size() <= 100)
+        )
+        && (
+          !('excerpt' in d) ||
+          (d.excerpt is string && d.excerpt.size() <= 1000)
+        )
+        && (
+          !('action' in d) ||
+          (
+            d.action is map &&
+            d.action.keys().hasOnly([
+              'label',
+              'title',
+              'description',
+              'text',
+              'url'
+            ]) &&
+            d.action.url in [
+              'contact.html',
+              'professional-services.html',
+              'ethics.html'
+            ]
+          )
+        );
+    }
+
+    match /articles/{id} {
+      allow read: if resource.data.status == 'published' || editor();
+
+      allow create: if editor()
+        && valid(id)
+        && request.resource.data.createdAt == request.time;
+
+      allow update: if editor()
+        && valid(id)
+        && request.resource.data.createdAt == resource.data.createdAt;
+
+      allow delete: if editor();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

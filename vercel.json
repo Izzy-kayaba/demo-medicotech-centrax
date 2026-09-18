@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/login",
+      "destination": "/admin/login.html"
+    },
+    {
+      "source": "/admin/dashboard",
+      "destination": "/admin/dashboard.html"
+    },
+    {
       "source": "/contact",
       "destination": "/contact.html"
     },
@@ -32,5 +44,7 @@
       "source": "/professional-services",
       "destination": "/professional-services.html"
     }
-  ]
+  ],
+  "buildCommand": "npm run prepare:hosting",
+  "outputDirectory": "public"
 }

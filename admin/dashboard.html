@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Manage News | MedicoTech</title>
+  <link rel="icon" href="/assets/medicotech.webp">
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+
+<body data-admin-page="dashboard">
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <main class="admin-shell">
+    <div class="admin-topbar">
+      <a class="admin-brand" href="/admin/dashboard" aria-label="MedicoTech News workspace"><img
+          src="/assets/medicotech-logo.png" alt="MedicoTech"><span>Content workspace</span></a>
+      <a class="admin-site-link" href="/news.html" target="_blank" rel="noopener">View website <span
+          aria-hidden="true">&#8599;</span></a>
+    </div>
+    <p id="message" role="status" aria-live="polite">Checking your access...</p>
+    <section id="dashboard" hidden>
+      <div class="admin-session"><span class="admin-section-label">NEWS MANAGEMENT</span>
+        <div><span id="account"></span><button id="logout" class="admin-text-button" type="button">Log out</button>
+        </div>
+      </div>
+      <div id="workspace" class="admin-workspace" tabindex="-1">
+        <header class="admin-toolbar">
+          <div>
+            <p class="admin-breadcrumb">Workspace <span aria-hidden="true">/</span> <span id="workspace-label">News
+                articles</span></p>
+            <h1>Manage News</h1>
+            <p class="admin-intro">Share your latest updates, stories and announcements.</p>
+          </div><button id="add-article" class="button" type="button"><span aria-hidden="true">+</span> Add New
+            Article</button>
+        </header>
+        <section id="editor" class="admin-panel" hidden aria-labelledby="editor-heading">
+          <div class="admin-panel-heading">
+            <div>
+              <h2 id="editor-heading">New article</h2>
+              <p>Write your story below. Images are always optional.</p>
+            </div><span class="admin-status-pill">Publishes on save</span>
+          </div>
+          <form id="article-form">
+            <fieldset id="editor-fields">
+              <div class="admin-editor-grid">
+                <div class="admin-writing">
+                  <label for="title">Article title <span class="admin-required">Required</span></label><input id="title"
+                    maxlength="200" required placeholder="Give your update a clear, descriptive title">
+                  <label for="content">Article content <span class="admin-required">Required</span></label><textarea
+                    id="content" rows="13" maxlength="100000" required aria-describedby="content-help"
+                    placeholder="Write your article here..."></textarea>
+                  <p id="content-help" class="admin-help">Leave a blank line between paragraphs. For a heading, start a
+                    line with ## followed by a space. For a list, start each item with - followed by a space.</p>
+                </div>
+                <aside class="admin-publishing" aria-label="Publication details">
+                  <h3>Publication details</h3>
+                  <label for="publishedAt">Publication date</label><input id="publishedAt" type="date" required
+                    aria-describedby="date-help">
+                  <p id="date-help" class="admin-help">Choose today or a past date. Saving makes the article visible
+                    immediately.</p>
+                  <div class="admin-note"><strong>Your words come first</strong>
+                    <p>You can publish without images. If an upload fails, your article will still save and any previous
+                      image will be kept.</p>
+                  </div>
+                </aside>
+              </div>
+              <section class="admin-images-section" aria-labelledby="images-heading">
+                <div class="admin-subheading">
+                  <h3 id="images-heading">Article images <span>Optional</span></h3>
+                  <p class="admin-help">Up to 2 images &middot; JPEG, PNG or WebP &middot; 5 MB each</p>
+                </div>
+                <div class="admin-image-slots">
+                  <div class="admin-image-card"><label for="image1">Image 1</label>
+                    <div id="preview1" class="admin-preview" hidden></div><input id="image1" type="file"
+                      accept="image/jpeg,image/png,image/webp" aria-describedby="image-status1">
+                    <p id="image-status1" class="admin-help" role="status">No image selected</p><label
+                      class="checkbox-label"><input id="remove1" type="checkbox"> Remove current image 1</label>
+                  </div>
+                  <div class="admin-image-card"><label for="image2">Image 2</label>
+                    <div id="preview2" class="admin-preview" hidden></div><input id="image2" type="file"
+                      accept="image/jpeg,image/png,image/webp" aria-describedby="image-status2">
+                    <p id="image-status2" class="admin-help" role="status">No image selected</p><label
+                      class="checkbox-label"><input id="remove2" type="checkbox"> Remove current image 2</label>
+                  </div>
+                </div>
+              </section>
+              <div class="admin-editor-actions">
+                <p>Changes go live when you save. There is no automatic saving.</p>
+                <div class="button-row"><button id="cancel" class="admin-secondary" type="button">Cancel</button><button
+                    class="button" type="submit"><span id="save-label">Save / Publish</span></button></div>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <section id="article-library" class="admin-library" aria-labelledby="library-heading">
+          <div class="admin-library-heading">
+            <h2 id="library-heading">Your articles</h2><span id="article-count" class="admin-status-pill"></span>
+          </div>
+          <p id="list-status" role="status"></p>
+          <div id="articles"></div>
+        </section>
+        <footer class="admin-footer">This workspace manages News articles. For changes to other pages, contact your
+          website support person.</footer>
+      </div>
+    </section>
+    <noscript>Enable JavaScript to manage News.</noscript>
+  </main>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+
+</html>
